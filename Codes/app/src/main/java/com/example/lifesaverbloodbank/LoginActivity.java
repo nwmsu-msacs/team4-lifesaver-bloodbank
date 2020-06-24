@@ -18,8 +18,8 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        emialET = (EditText) findViewById(R.id.emailET);
-        passwordET = (EditText) findViewById(R.id.passwordET);
+        //emialET = (EditText) findViewById(R.id.emailET);
+        //passwordET = (EditText) findViewById(R.id.passwordET);
         loginBTN = (Button) findViewById(R.id.loginBTN);
         loginBTN.setOnClickListener(new View.OnClickListener() {
             @Override
