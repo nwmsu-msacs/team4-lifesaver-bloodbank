@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-2082595218/Life_Saver_Blood_Bank.iml" filepath="$PROJECT_DIR$/.idea/modules/-2082595218/Life_Saver_Blood_Bank.iml" group="Life_Saver_Blood_Bank" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app.iml" group="Life Saver Blood Bank/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app.iml" />
     </modules>
   </component>
 </project>
