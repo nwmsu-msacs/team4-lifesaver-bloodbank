@@ -118,6 +118,36 @@ public class SignUpActivity extends AppCompatActivity {
                 });
             }
         });
+        bloodgroupSP = findViewById(R.id.bloodgroupSP);
+        List<String> bloodgroups = new ArrayList<>();
+        bloodgroups.add("Blood Group");
+        bloodgroups.add("AB+");
+        bloodgroups.add("AB-");
+        bloodgroups.add("A+");
+        bloodgroups.add("A-");
+        bloodgroups.add("B+");
+        bloodgroups.add("B-");
+        bloodgroups.add("O+");
+        bloodgroups.add("O-");
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, bloodgroups);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        bloodgroupSP.setAdapter(arrayAdapter);
+    }
+    public void onRadioButtonClicked(View v) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) v).isChecked();
+
+        // Check which radio button was clicked
+        switch(v.getId()) {
+            case R.id.donor:
+                if (checked)
+                    Toast.makeText(SignUpActivity.this," You selected donor",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.acceptor:
+                if (checked)
+                    Toast.makeText(SignUpActivity.this,"You selected acceptor",Toast.LENGTH_SHORT).show();
+                break;
+        }
     }
     public static boolean PasswordValidation(String password) {
         Pattern pattern;
