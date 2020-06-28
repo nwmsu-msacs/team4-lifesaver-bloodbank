@@ -47,7 +47,7 @@
         app:layout_constraintVertical_bias="0.289" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/emailET"
         android:layout_width="220dp"
         android:layout_height="50dp"
         android:ems="10"
@@ -59,33 +59,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.218" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName3"
-        android:layout_width="223dp"
-        android:layout_height="48dp"
-        android:ems="10"
-        android:hint="Enter Password"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.276"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.345" />
-
-    <EditText
-        android:id="@+id/bloodgroupET"
-        android:layout_width="223dp"
-        android:layout_height="45dp"
-        android:ems="10"
-        android:hint="Enter blood group"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.281"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/nameET"
@@ -101,35 +74,48 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.423" />
 
-    <RadioButton
-        android:id="@+id/radioButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Donor"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.201"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.573" />
 
-    <RadioButton
-        android:id="@+id/radioButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Acceptor"
+    <RadioGroup
+        android:id="@+id/usertypeRG"
+        android:layout_width="240dp"
+        android:layout_height="35dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.309"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.573" />
+        app:layout_constraintVertical_bias="0.571">
+
+        <RadioButton
+            android:id="@+id/donor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:checked="false"
+            android:onClick="onRadioButtonClicked"
+            android:text="Donor"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:id="@+id/acceptor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="15dp"
+            android:checked="false"
+            android:onClick="onRadioButtonClicked"
+            android:text="Acceptor"
+            android:textSize="20dp" />
+    </RadioGroup>
 
     <Button
         android:id="@+id/signupBTN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SignUP"
         android:background="@drawable/custom_rounded_corners"
+        android:text="SignUP"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.352"
@@ -153,14 +139,40 @@
         android:id="@+id/signinBTN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SignIn"
         android:background="@drawable/custom_rounded_corners"
+        android:text="SignIn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.569"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.758" />
+
+    <EditText
+        android:id="@+id/passwordET"
+        android:layout_width="224dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:hint="Enter Password"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.278"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.341" />
+
+    <Spinner
+        android:id="@+id/bloodgroupSP"
+        android:layout_width="185dp"
+        android:layout_height="30dp"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.234"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
