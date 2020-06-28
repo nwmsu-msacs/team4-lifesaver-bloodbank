@@ -87,6 +87,35 @@ public class SignUpActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Email address should be of valid format", Toast.LENGTH_LONG).show();
                     return;
                 }
+                mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()) {
+                            if (usertype.equalsIgnoreCase("Donor") || usertype.equalsIgnoreCase("Acceptor")) {
+                                Toast.makeText(getApplicationContext(), "Registered Successfully!", Toast.LENGTH_SHORT).show();
+                                DocumentReference documentReference = firebaseFirestore.collection(usertype).document(name);
+                                Map<String, Object> user = new HashMap<>();
+                                user.put("Name", name);
+                                user.put("EmailId", email);
+                                user.put("Blood Group", bloodgroupSP.getSelectedItem().toString());
+                                user.put("User Type", usertype);
+                                documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+                                        Log.d("TAG", "user data created" + userId);
+                                    }
+                                });
+                                Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+                                startActivity(intent);
+                            }
+                        }
+                        else {
+                            //progressBar.setVisibility(View.GONE);
+                            Log.e("TAG", "onComplete: Failed=" + task.getException().getMessage());
+                            Toast.makeText(SignUpActivity.this,"could not register",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
             }
         });
     }
