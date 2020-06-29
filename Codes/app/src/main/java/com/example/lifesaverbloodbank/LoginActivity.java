@@ -63,7 +63,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             isUserLogin = true;
-                            //getUserName(email);
+                            getUserName(email);
                             emailId = email;
                             Toast.makeText(getApplicationContext(), "Logged in Successfully!", Toast.LENGTH_SHORT).show();
                         } else {
@@ -86,6 +86,33 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, forgotPasswordActivity.class);
                 startActivity(intent);
+            }
+        });
+    }
+    public void getUserName(final String email) {
+
+        firebaseFirestore.collection("Users List").addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(QuerySnapshot documentSnapshots, FirebaseFirestoreException e) {
+                if (e != null) {
+                    Log.d("LoginActivity", "Error:" + e.getMessage());
+                    return;
+                } else {
+                    for (DocumentChange documentChange : documentSnapshots.getDocumentChanges()) {
+                        if ("Donor".equalsIgnoreCase(documentChange.getDocument().getData().get("User Type").toString())
+                                && email.equalsIgnoreCase(documentChange.getDocument().getData().get("EmailId").toString())) {
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            startActivity(intent);
+                            break;
+                        }
+                        else if ("Acceptor".equalsIgnoreCase(documentChange.getDocument().getData().get("User Type").toString())
+                                && email.equalsIgnoreCase(documentChange.getDocument().getData().get("EmailId").toString())) {
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            startActivity(intent);
+                            break;
+                        }
+                    }
+                }
             }
         });
     }
