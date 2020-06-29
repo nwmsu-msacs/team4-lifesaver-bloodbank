@@ -53,9 +53,17 @@ public class SignUpActivity extends AppCompatActivity {
         getBloodgroupSP = findViewById(R.id.bloodgroupSP);
         usertypeRG = findViewById(R.id.usertypeRG);
         signupBTN = findViewById(R.id.signupBTN);
-
+        signinBTN = findViewById(R.id.signinBTN);
         mAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
+
+        signinBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
 
         signupBTN.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,7 +101,7 @@ public class SignUpActivity extends AppCompatActivity {
                         if(task.isSuccessful()) {
                             if (usertype.equalsIgnoreCase("Donor") || usertype.equalsIgnoreCase("Acceptor")) {
                                 Toast.makeText(getApplicationContext(), "Registered Successfully!", Toast.LENGTH_SHORT).show();
-                                DocumentReference documentReference = firebaseFirestore.collection(usertype).document(name);
+                                DocumentReference documentReference = firebaseFirestore.collection("Users List").document(email);
                                 Map<String, Object> user = new HashMap<>();
                                 user.put("Name", name);
                                 user.put("EmailId", email);
