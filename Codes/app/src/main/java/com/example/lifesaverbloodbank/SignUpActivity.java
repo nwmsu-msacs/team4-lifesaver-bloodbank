@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -39,6 +40,7 @@ public class SignUpActivity extends AppCompatActivity {
     private Spinner getBloodgroupSP;
     private RadioGroup usertypeRG;
     private Button signinBTN,signupBTN;
+    private ProgressBar progressBar2;
     Spinner bloodgroupSP;
     FirebaseAuth mAuth;
     FirebaseFirestore firebaseFirestore;
@@ -54,6 +56,7 @@ public class SignUpActivity extends AppCompatActivity {
         usertypeRG = findViewById(R.id.usertypeRG);
         signupBTN = findViewById(R.id.signupBTN);
         signinBTN = findViewById(R.id.signinBTN);
+        progressBar2 = findViewById(R.id.progressBar2);
         mAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
 
@@ -95,6 +98,7 @@ public class SignUpActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Email address should be of valid format", Toast.LENGTH_LONG).show();
                     return;
                 }
+                progressBar2.setVisibility(View.VISIBLE);
                 mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -113,6 +117,7 @@ public class SignUpActivity extends AppCompatActivity {
                                         Log.d("TAG", "user data created" + userId);
                                     }
                                 });
+                                progressBar2.setVisibility(View.GONE);
                                 Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
                                 startActivity(intent);
                             }
