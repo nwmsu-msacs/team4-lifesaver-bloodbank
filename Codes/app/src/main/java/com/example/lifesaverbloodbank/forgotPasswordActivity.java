@@ -17,18 +17,18 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class forgotPasswordActivity extends AppCompatActivity {
     ProgressBar progressBar1;
-    Button backBTN;
+    Button sendBTN;
     EditText EmailTxt;
     FirebaseAuth firebaseAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password);
-        backBTN = (Button) findViewById(R.id.sendBTN);
+        sendBTN = (Button) findViewById(R.id.sendBTN);
         EmailTxt = (EditText) findViewById(R.id.EmailTxt);
         progressBar1 = findViewById(R.id.progressBar);
         firebaseAuth = FirebaseAuth.getInstance();
-        backBTN.setOnClickListener(new View.OnClickListener() {
+        sendBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(EmailTxt.length()==0){
