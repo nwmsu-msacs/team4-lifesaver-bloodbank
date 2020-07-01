@@ -1,4 +1,4 @@
-package com.example.lifesaverbloodbank.ui.slideshow;
+package com.example.lifesaverbloodbank.ui.faq;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.lifesaverbloodbank.R;
 
-public class SlideshowFragment extends Fragment {
+public class FaqFragment extends Fragment {
 
-    private SlideshowViewModel slideshowViewModel;
+    private FaqViewModel faqViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        slideshowViewModel =
-                ViewModelProviders.of(this).get(SlideshowViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
-        final TextView textView = root.findViewById(R.id.text_slideshow);
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        faqViewModel =
+                ViewModelProviders.of(this).get(FaqViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_gallery, container, false);
+        final TextView textView = root.findViewById(R.id.text_gallery);
+        faqViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
