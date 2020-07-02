@@ -46,6 +46,7 @@ public class forgotPasswordActivity extends AppCompatActivity {
                             startActivity(intent2);
                         }
                         else {
+                            progressBar1.setVisibility(View.GONE);
                             Toast.makeText(forgotPasswordActivity.this,"entered email is not registered",Toast.LENGTH_LONG).show();
                         }
                     }

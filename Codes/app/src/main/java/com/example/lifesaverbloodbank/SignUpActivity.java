@@ -123,7 +123,7 @@ public class SignUpActivity extends AppCompatActivity {
                             }
                         }
                         else {
-                            //progressBar.setVisibility(View.GONE);
+                            progressBar2.setVisibility(View.GONE);
                             Log.e("TAG", "onComplete: Failed=" + task.getException().getMessage());
                             Toast.makeText(SignUpActivity.this,"could not register",Toast.LENGTH_SHORT).show();
                         }
