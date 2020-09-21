@@ -120,4 +120,47 @@ public class MainActivity extends SuperClasses implements View.OnClickListener {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+
+        System.exit(0);
+//        DialogClass.showDialogMethod(MainActivity.this,"Do you want Logout?","LogOut",LoginActivity.class);
+    }
+
+    public void doTask(){
+
+    }
+    public void onResume(){
+        super.onResume();
+       // countServiece();
+    }
+    public void countServiece(){
+        response= JSONParser.makeHttpRequest(context, ApplicationHolder.base_url+ApplicationHolder.notification_count_url, "GET", null);
+        countNotifications.setText(response);
+    }
+    public void responseCount(String response){
+        int k= Integer.parseInt(response);
+        if(k>0) {
+
+            countNotifications.setVisibility(View.VISIBLE);
+            countNotifications.setText(response);
+        }
+        else{
+            countNotifications.setVisibility(View.GONE);
+        }
+    }
+
+    public static boolean hasPermissions(Context context, String... permissions) {
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && context != null && permissions != null) {
+            for (String permission : permissions) {
+                if (ActivityCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+}
+
+
   
