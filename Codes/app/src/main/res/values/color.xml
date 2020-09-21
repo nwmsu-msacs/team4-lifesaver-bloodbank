@@ -1,0 +1,29 @@
+<resources>
+    <color name="text_color">#000000</color>
+    <color name="text_action_color">#009788</color>
+    <color name="button_color">#0a67ad</color>
+    <color name="button_text_color">#FFFFFF</color>
+
+
+    <color name ="text_normal">#8C000000</color>
+    <color name ="separator">#24000000</color>
+    <color name ="action">#D6351E</color>
+    <color name ="white">#ffffff</color>
+    <color name ="light_white">#f7f4f4</color>
+
+    <color name="bkg_card">#ffffff</color>
+
+    <color name="app_green">#21BBA6</color>
+    <color name="thick_green">#1fbb1a</color>
+
+    <!--menu colors-->
+    <color name ="bg_two">#F7F7F7</color>
+    <color name="card_bg">#EBEBEB</color>
+    <color name="card_outline">#D0D0CE</color>
+
+    <color name="title_color">#151431</color>
+    <color name="location1_color">#999999</color>
+    <color name="location_color">#8b8aac</color>
+    <color name="secondcard_color">#fcef5852</color>
+    <color name="profile_text_color">#D6351E</color>
+</resources>

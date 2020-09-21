@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "965538963218",
+    "firebase_url": "https://bloodbank-da2af.firebaseio.com",
+    "project_id": "bloodbank-da2af",
+    "storage_bucket": "bloodbank-da2af.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:965538963218:android:c8735ebc0cecc835031dcb",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "965538963218-agn8usll5gcp96kc6rng6o8fnhufk6vk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIMkpUizG4mICGtleS9A72kVywrB9h6OY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "965538963218-agn8usll5gcp96kc6rng6o8fnhufk6vk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

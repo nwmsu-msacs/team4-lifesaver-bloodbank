@@ -1,0 +1,181 @@
+<resources>
+    <string name="app_name">Life Saver Blood Bank</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="forgot_password"><u>Forgot Password</u></string>
+    <string name="new_user"><u>New User</u></string>
+    <string name="menu_home">HOME</string>
+    <string name="menu_contactus">CONTACT US</string>
+    <string name="menu_blood_tips">BLOOD TIPS</string>
+    <string name="menu_aboutus">ABOUT US</string>
+    <string name="menu_faqs">FAQS</string>
+    <string name="menu_profile">PROFILE</string>
+    <string name="menu_logout">LOGOUT</string>
+
+
+    <string name="Tap_imagetochange">Tap image to change</string>
+    <string name="Profilecomplete">Profile is 75% complete</string>
+    <string name="Edit_Profile">Edit Profile</string>
+    <string name="Summary">Summary : </string>
+    <string name="Edit_Specialty">Edit Specialty</string>
+    <string name="My_Network"> My Network (Speakers I wanted to meet)</string>
+    <string name="Tracking1">Tracking (Speakers I am tracking) </string>
+    <string name="Notifications">Notifications </string>
+    <string name="Enter_User_Name">Enter User Name</string>
+    <string name="bullet">\u25CF</string>
+    <string-array name="select_sp">
+
+    <item>Select a popular specialty</item>
+
+</string-array>
+    <string-array name="states">
+        <item>Select State</item>
+        <item>Andhra Pradesh</item>
+        <item>Arunachal Pradesh</item>
+        <item>Assam</item>
+        <item>Bihar</item>
+        <item>Chhattisgarh</item>
+        <item>Goa</item>
+        <item>Gujarat</item>
+        <item>Haryana</item>
+        <item>Himachal Pradesh</item>
+        <item>Jammu and Kashmir</item>
+        <item>Jharkhand</item>
+        <item>Karnataka</item>
+        <item>Kerala</item>
+        <item>Madhya Pradesh</item>
+        <item>Maharashtra</item>
+        <item>Manipur</item>
+        <item>Meghalaya</item>
+        <item>Mizoram</item>
+        <item>Nagaland</item>
+        <item>Odisha</item>
+        <item>Punjab</item>
+        <item>Rajasthan</item>
+        <item>Sikkim</item>
+        <item>Tamil Nadu</item>
+        <item>Telangana</item>
+        <item>Tripura</item>
+        <item>Uttar Pradesh</item>
+        <item>Uttarakhand</item>
+        <item>West Bengal</item>
+    </string-array>
+
+    <string-array name="blood_groups">
+        <item>Select Blood Group</item>
+        <item>O+</item>
+        <item>O-</item>
+        <item>A+</item>
+        <item>A-</item>
+        <item>B+</item>
+        <item>B-</item>
+        <item>AB+</item>
+        <item>AB-</item>
+    </string-array>
+    <string-array name="gender">
+        <item>Select Gender</item>
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
+<string name="about_us"><Data><![CDATA[ <p><font color="#000000"></font></p>
+<p><b><font color="#A90113">A Blood Donor – A Life Saver</font></b></p>
+<font color="#000000">A few minutes of your time can save a person and extend his/her life by years. Become a blood donor and become a life saver. And your contribution by being a blood donor is not limited to saving just one patient but more than one. There are four unique components in blood which can be extracted and that can be used to help any patient in need of the corresponding component. So, by donating blood, always keep in mind that you are saving more than one life!</font><br>
+<font color="#000000">For those of you who do not know this yet, any healthy individual can donate blood every three to six months. The human body has the ability to reproduce the lost blood without affecting the functioning of the body at all. Think about the number of lives you can save if you are regular blood donor. You can donate individual components of blood as well. Many patients may require individual components such as platelets, red blood cells, or plasma for their treatment. </font><br>
+<font color="#000000">So, we request you all to become a part of the blood donating community and help save a number of lives. </font>]]> </Data></string>
+
+    <string-array name="faqs">
+        <item><Data><![CDATA[<p><b><font color="#A90113">1. What are the minimum requirements to become a blood donor?</font></b>]]> </Data></item>
+        <item><Data><![CDATA[<p><b><font color="#A90113">2. Will donating blood hurt?</font></b>]]> </Data></item>
+        <item><Data><![CDATA[<p><b><font color="#A90113">3. Are blood donors paid?</font></b>]]> </Data></item>
+        <item><Data><![CDATA[<p><b><font color="#A90113">4. How badly is blood needed?</font></b>]]> </Data></item>
+        <item><Data><![CDATA[<p><b><font color="#A90113">5. Why are there often blood shortages?</font></b>]]> </Data></item>
+        <item><Data><![CDATA[<p><b><font color="#A90113">6. Can I get AIDS from donating blood?</font></b>]]> </Data></item>
+        <item><Data><![CDATA[<p><b><font color="#A90113">7. Do I have enough blood in my body to donate?</font></b>]]> </Data></item>
+        <item><Data><![CDATA[<p><b><font color="#A90113">8. How much blood is taken?</font></b>]]> </Data></item>
+        <item><Data><![CDATA[<p><b><font color="#A90113">9. How much time does it take for my body to replace the blood that I donated?</font></b>]]> </Data></item>
+    </string-array>
+
+    <string-array name="faqs_ans">
+        <item>Check with your local blood bank to determine the exact requirements, but generally, you must be at least 16 years of age, a minimum of 110 pounds, and in basic good health.</item>
+        <item>You may feel a slight sting in the beginning lasting only a couple of seconds, but there should be no discomfort during the donation.</item>
+        <item>No. Blood collected for transfusion in the US is given by volunteer blood donors.</item>
+        <item>Blood supplies can vary depending on the region and time of year. As donor qualifications continue to become stricter and as the donor population ages, our nation is at risk of a low blood supply. If you are eligible, your blood donations are needed.</item>
+        <item>Most blood centers strive to maintain an optimum inventory level of a three-day supply. Due to unpredictable demands from trauma incidents the inventory fluctuates hourly. When the blood supply drops below a three-day level, blood centers begin alerting local donors to increase the inventory to a safe operating level.</item>
+        <item>No. There is no risk of contracting AIDS or any other disease through the donation process. Each collection kit is sterile, pre-packaged and used only once.</item>
+        <item>Yes. The body contains 10 to 12 pints of blood. Your whole blood donation is approximately one pint.</item>
+        <item>For a whole blood donation, approximately one pint (which weighs about one pound) is collected. For a platelet donation, the amount collected depends on your height, weight and platelet count.</item>
+        <item>Not long at all. The volume of fluids will adjust within a few hours of your donation. The red blood cells will be replaced within a few weeks.</item>
+    </string-array>
+
+
+    <string name="faqs"><Data><![CDATA[
+    <p><b><font color="#A90113">1. What are the different types of blood groups?</font></b> <br>
+    <font color="#000000">There are basically four types of blood groups. They are A, B, AB, and O. These are further classified into A+, A-, B+, B-, AB+, AB-, O+, and O-. The classification of the blood groups is based on the type of antigens (A or B or both or neither) present in the blood. The negative or positive sign beside the main blood group type signifies the absence or presence of Rh factor.</p></font><br>
+    <p><b><font color="#A90113">2. What is Universal Acceptor and Universal Donor?</font></b> <br>
+   <font color="#000000">Individuals with blood group AB+ are considered Universal Acceptors as they can receive blood from persons with any of the four blood groups. But their blood can be donated to only the persons with the same i.e. AB+ blood group.<br></font>
+  <font color="#000000"> Individuals with blood group O- are considered Universal Donors as they donate blood to persons of any blood group type. But they can receive blood only from persons with the same blood group type i.e. O-.<br></font></p>
+    <p><b><font color="#A90113">3. Which Blood Group is most common and which one is rare in India?</font></b> <br>
+    <font color="#000000">Among the four main blood groups, B group is the most common type closely followed by O group while AB is the least common blood group. There is one more blood group known as Bombay Blood group or HH group which is extremely rare and is not considered among the major blood group types. Individuals with this group can accept or donate the blood from or to the individuals of the same group.</font>
+    ]]> </Data></string>
+    <string name="noInternet">Please connect to Internet</string>
+    <string name="pleaseEnterUserName">Please enter User name</string>
+    <string name="pleaseEnterPassword">Please enter Password</string>
+    <string name="request">Request</string>
+    <string name="response">Response</string>
+    <string name="Name">Name</string>
+    <string name="pleaseEnter">Please enter</string>
+    <string name="MobileNo">Mobile Number</string>
+    <string name="ResidentNo">Resident Number</string>
+    <string name="BloodGroup">Blood Group</string>
+
+    <string name="contact_point"><Data><![CDATA[<p><font color="#000000">   If you have any queries regarding blood donation, or on how to contact the donors, or how to be a part of Jeevan Jyoti, you can just call us or write to us. Our team will attend to your queries and assist you. </font></p>]]> </Data></string>
+
+<string name="blood_tips"><Data><![CDATA[
+<p><font color="#000000">Few tips for maintaining a healthy blood flow and for a long and healthy life</p>
+     &#8226; The most important constituent of the blood is Iron. It is important to include iron-rich foods in your regular diet such as red meat, fish, beef, lentils, beans, spinach, iron-fortified cereals and raisins.<br>
+     &#8226; Healthy blood is oxygen-rich blood. For your blood to be strong with oxygen, exercise regularly and have some consistent physical activity outdoors<br>
+     &#8226; Drinking lots and lots of water is highly essential<br>
+     &#8226; Vegetables, especially green-leaf, are considered healthy for the blood<br>
+     &#8226; Eat fruits and vegetables on a daily basis to keep the blood fresh and healthy<br>
+     &#8226; Fiber-rich food content is also very much helpful in maintaining healthy blood<br>
+     &#8226; Avoid smoking and alcoholic consumption as they can damage the health of the blood and eventually the health of the body very quickly<br>
+     &#8226; Excess of sugar in foods is also harmful for blood. Limit the consumption of sweet beverages and soft drinks.<br>
+     &#8226; Use natural products for skin health. Heavy use of artificial cosmetic products can affect the blood under as the constituents of these products can seep through the skin and cause damage<br>
+</font></p>]]> </Data></string>
+
+
+ <string name="blood_quote"><Data><![CDATA[<b>  The Blood You Donate Gives Someone Another Chance At Life. One Day That Someone May Be A Close Relative, A Friend, A Loved One—Or Even You.</b>]]> </Data></string>
+    <string name="blood_quote1"><Data><![CDATA[<b>  Feel better, feel fitter, Donate blood and make it matter </b>]]> </Data></string>
+    <string name="blood_tips2">Blood Tips</string>
+    <string name="progress">Work in progress</string>
+    <string name="drawer_open">open navigation drawer</string>
+    <string name="drawer_close">close navigation drawer</string>
+    <string name="please_wait">Please Wait......</string>
+
+</resources>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
