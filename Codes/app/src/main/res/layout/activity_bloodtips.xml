@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainDrawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <include
+            android:id="@+id/homeTitleBarId"
+            layout="@layout/home_title_bar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/home_bg"
+            android:alpha="0.6"
+            android:scrollbars="none">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/content_frame"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="center">
+
+                <com.example.myapplication.util.CustomTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/bloodTipsTxt"
+                    android:layout_marginTop="20dp"
+                    android:text="Few tips for maintaining a healthy blood flow and for a long and healthy life"
+                    android:textColor="#000"
+                    android:textSize="16dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:layout_marginTop="@dimen/interViewGap"
+                    android:layout_marginBottom="@dimen/interViewGap"
+                    android:layout_marginLeft="@dimen/intraViewGap"
+                    android:layout_marginRight="@dimen/intraViewGap"
+                    android:orientation="vertical">
+                    </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_below="@+id/bloodTipsTxt"
+                    android:id="@+id/main_layout"
+                    android:layout_marginLeft="10dp">
+
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/mLeftDrawer"
+        android:layout_width="@dimen/menu_drawer_layout_width"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/content_frame"
+        android:layout_gravity="start|bottom"
+        android:choiceMode="singleChoice"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/menuBarInclude"
+            android:layout_marginTop="50dp"
+            layout="@layout/menulayout"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"/>
+    </LinearLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>
