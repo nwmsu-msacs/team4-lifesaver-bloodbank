@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_bg"
+    android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.example.myapplication.util.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="Sign Up"
+            android:textStyle="bold"
+            android:background="@color/action"
+            android:textColor="@color/button_text_color"
+            android:textSize="@dimen/text_xlarge" />
+
+
+        <ImageView
+            android:id="@+id/backImage"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="@dimen/interViewGap"
+            android:src="@drawable/back_30"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:paddingBottom="20dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+    <com.example.myapplication.util.CustomEditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rectangle_bg"
+        android:id="@+id/don_name"
+        android:hint="Full Name"
+        android:paddingLeft="10dp"
+        android:singleLine="true"/>
+    <com.example.myapplication.util.CustomEditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rectangle_bg"
+        android:hint="Mobile Number"
+        android:paddingLeft="10dp"
+        android:maxLength="10"
+        android:id="@+id/mobileNo"
+        android:imeOptions="actionNext"
+        android:inputType="number"
+        android:singleLine="true"/>
+           <!-- <com.example.myapplication.util.CustomEditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rectangle_bg"
+                android:hint="Resident Phone Number"
+                android:paddingLeft="10dp"
+                android:id="@+id/res_mobileNo"
+                android:inputType="number"
+                android:imeOptions="actionNext"
+                android:singleLine="true"/>-->
+            <com.example.myapplication.util.CustomEditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rectangle_bg"
+                android:hint="Email"
+                android:paddingLeft="10dp"
+                android:id="@+id/don_Email"
+                android:inputType="textEmailAddress"
+                android:imeOptions="actionNext"
+                android:singleLine="true"/>
+            <com.example.myapplication.util.CustomEditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rectangle_bg"
+                android:hint="Password"
+                android:id="@+id/etPassword"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:singleLine="true"
+                android:paddingLeft="10dp"/>
+    <com.example.myapplication.util.CustomTextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rectangle_bg"
+        android:hint="Date Of Birth"
+        android:drawableRight="@drawable/calander"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:id="@+id/don_dob"
+        android:gravity="center_vertical"
+        android:singleLine="true"/>
+
+           <!-- <com.example.myapplication.util.CustomTextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rectangle_bg"
+                android:hint="Blood Donated On"
+                android:drawableRight="@drawable/calander"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:id="@+id/don_bloodDonatedOn"
+                android:gravity="center_vertical"/>
+            <com.example.myapplication.util.CustomEditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rectangle_bg"
+                android:hint="How Often"
+                android:paddingLeft="10dp"
+                android:id="@+id/don_howOften"
+                android:imeOptions="actionNext"
+                android:singleLine="true"/>
+            <com.example.myapplication.util.CustomEditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rectangle_bg"
+                android:hint="Weight"
+                android:paddingLeft="10dp"
+                android:id="@+id/don_weight"
+                android:inputType="number"
+                android:imeOptions="actionNext"
+                android:singleLine="true"/>-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp">
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/rectangle_bg"
+        android:paddingLeft="10dp"
+        android:entries="@array/blood_groups"
+        android:id="@+id/don_bloodGroup"
+       />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:src="@drawable/down_arrow"
+            android:layout_marginRight="10dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp">
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rectangle_bg"
+            android:entries="@array/gender"
+            android:paddingLeft="10dp"
+            android:id="@+id/don_gender"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:src="@drawable/down_arrow"
+            android:layout_marginRight="5dp"/>
+    </RelativeLayout>
+
+   <!-- <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp">
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rectangle_bg"
+            android:entries="@array/states"
+            android:paddingLeft="10dp"
+            android:id="@+id/don_state"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:src="@drawable/down_arrow"
+            android:layout_marginRight="5dp"/>
+    </RelativeLayout>-->
+           <!-- <com.example.myapplication.util.CustomEditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rectangle_bg"
+                android:hint="District"
+                android:id="@+id/don_district"
+                android:imeOptions="actionNext"
+                android:paddingLeft="10dp"/>-->
+    <com.example.myapplication.util.CustomEditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rectangle_bg"
+        android:hint="City"
+        android:id="@+id/don_city"
+        android:imeOptions="actionDone"
+        android:singleLine="true"
+        android:paddingLeft="10dp"/>
+
+
+   <!-- <com.example.myapplication.util.CustomEditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rectangle_bg"
+        android:hint="Address"
+        android:paddingLeft="10dp"
+        android:id="@+id/don_address"
+        android:imeOptions="actionNext"
+        android:singleLine="true"/>
+
+    <com.example.myapplication.util.CustomEditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rectangle_bg"
+        android:hint="Password"
+        android:paddingLeft="10dp"
+        android:id="@+id/don_password"
+        android:inputType="textPassword"
+        android:imeOptions="actionNext"
+        android:singleLine="true"/>
+    <com.example.myapplication.util.CustomEditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rectangle_bg"
+        android:hint="Conform Password"
+        android:paddingLeft="10dp"
+        android:id="@+id/don_confirmpw"
+        android:inputType="textPassword"
+        android:imeOptions="actionDone"
+        android:singleLine="true"/>-->
+            <com.example.myapplication.util.CustomButton
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:text="Sign Up"
+                android:id="@+id/signUp"
+                android:textColor="#fff"
+                android:background="#e43c4b"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
