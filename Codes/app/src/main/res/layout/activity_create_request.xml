@@ -179,6 +179,43 @@
                 android:paddingLeft="@dimen/edit_pading_left"
 
                 />
+<com.example.myapplication.util.CustomTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/interViewGap"
+                android:text="Location"
+                android:textColor="@color/text_color" />
+
+            <com.example.myapplication.util.CustomEditText
+                android:id="@+id/location"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edit_text_height"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/rectangle_bg"
+                android:maxLines="1"
+                android:imeOptions="actionDone"
+                android:paddingLeft="@dimen/edit_pading_left"
+                android:singleLine="true"
+
+                />
+
+         
+
+
+            <com.example.myapplication.util.CustomButton
+                android:id="@+id/request"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/action"
+                android:text="Request"
+                android:textColor="#fff" />
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>
 
 
             
