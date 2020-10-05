@@ -57,3 +57,37 @@ name=(TextView)findViewById(R.id.nameTxt);
     }
 
 
+
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()){
+        case R.id.callToDonor:
+           Intent in=new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+showDonors.getUserMobile()));
+           try{
+               startActivity(in);
+           }
+
+           catch (android.content.ActivityNotFoundException ex){
+               Toast.makeText(getApplicationContext(),"your call is not founded", Toast.LENGTH_SHORT).show();
+           }
+       break;
+            case R.id.notificationsBellLayout:
+            startActivity(new Intent(this,NotificationsActivity.class));
+                break;
+            case R.id.backImage:finish();
+                break;
+        }
+    }
+    public void responseCount(String response){
+        int k= Integer.parseInt(response);
+        if(k>0) {
+            countNotifications.setVisibility(View.VISIBLE);
+            countNotifications.setText(response);
+        }
+        else{
+            countNotifications.setVisibility(View.GONE);
+        }
+    }
+}
+
+
