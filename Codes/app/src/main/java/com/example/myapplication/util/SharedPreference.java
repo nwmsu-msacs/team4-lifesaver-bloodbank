@@ -4,9 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-/**
- * Created by Anand on 25/09/2016.
- */
 public class SharedPreference {
 
     Context c;
