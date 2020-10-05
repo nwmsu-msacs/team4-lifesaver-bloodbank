@@ -557,3 +557,32 @@ private void viewRegistration() {
 		}
 
 	}
+
+	public void responseCount(String response){
+		int k= Integer.parseInt(response);
+		if(k>0) {
+			countNotifications.setVisibility(View.VISIBLE);
+			countNotifications.setText(response);
+		}
+		else{
+			countNotifications.setVisibility(View.GONE);
+		}
+	}
+
+	public void date() {
+		final Calendar c = Calendar.getInstance();
+		mYear = c.get(Calendar.YEAR);
+		mMonth = c.get(Calendar.MONTH);
+		mDay = c.get(Calendar.DAY_OF_MONTH);
+
+		DatePickerDialog dpd = new DatePickerDialog(this,
+				new DatePickerDialog.OnDateSetListener() {
+					@Override
+					public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+						dobTv.setText( year+ "-" + (monthOfYear + 1)+ "-" +dayOfMonth );
+					}
+				}, mYear, mMonth, mDay);
+		dpd.show();
+		dpd.setIcon(R.drawable.calander);
+	}
+}
