@@ -489,4 +489,134 @@ public class DonorsActivity extends Activity implements View.OnClickListener, Ad
             parserTask.execute(result);
         }
     }
+
+/** A class to parse the Google Places in JSON format */
+    private class ParserTask extends AsyncTask<String, Integer, List<HashMap<String, String>>> {
+
+        JSONObject jObject;
+        List<String> placeString;
+
+        @Override
+        protected List<HashMap<String, String>> doInBackground(String... jsonData) {
+
+            List<HashMap<String, String>> places = null;
+
+            PlaceJSONParser placeJsonParser = new PlaceJSONParser();
+
+            try{
+                jObject = new JSONObject(jsonData[0]);
+
+                Log.v("anand>>>",">>>>>>"+jObject);
+                //placeString.add(jObject.getString())
+                // Getting the parsed data as a List construct
+
+                places = placeJsonParser.parse(jObject);
+
+            }catch(Exception e){
+                Log.d("Exception",e.toString());
+            }
+            return places;
+        }
+
+        @Override
+        protected void onPostExecute(List<HashMap<String, String>> result) {
+
+            String[] from = new String[] { "description"};
+           // String[] from = new String[] { new String("main_text")};
+            int[] to = new int[] { android.R.id.text1 };
+
+            // Creating a SimpleAdapter for the AutoCompleteTextView
+            SimpleAdapter adapter = new SimpleAdapter(getBaseContext(), result, android.R.layout.simple_list_item_1, from, to);
+
+            // Setting the adapter
+            city.setAdapter(adapter);
+            if (!stop)
+            city.showDropDown();
+            else
+                city.dismissDropDown();
+        }
+    }
+
+    private class SeearchLatLang extends AsyncTask<String, String, String> {
+
+        @Override
+        protected String doInBackground(String[] objects) {
+            String data = "";
+            InputStream iStream = null;
+            HttpURLConnection urlConnection = null;
+            try{
+
+
+                String temUrl=objects[0];
+                if(temUrl.contains(" ")){
+                    temUrl=temUrl.replace(" ","%20");
+                }
+                URL url = new URL("http://maps.google.com/maps/api/geocode/json?address="+temUrl+"&sensor=false");
+
+                // Creating an http connection to communicate with url
+                urlConnection = (HttpURLConnection) url.openConnection();
+
+                // Connecting to url
+                urlConnection.connect();
+
+                // Reading data from url
+                iStream = urlConnection.getInputStream();
+
+                BufferedReader br = new BufferedReader(new InputStreamReader(iStream));
+
+                StringBuffer sb  = new StringBuffer();
+
+                String line = "";
+                while( ( line = br.readLine())  != null){
+                    sb.append(line);
+                }
+
+                data = sb.toString();
+
+                br.close();
+
+            }catch(Exception e){
+                Log.d("Exception", e.toString());
+            }finally{
+                try {
+                    iStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                urlConnection.disconnect();
+            }
+            return data;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+
+            try {
+
+                JSONObject jsonObject=new JSONObject(s);
+
+                JSONArray results=jsonObject.getJSONArray("results");
+                if(results==null?false:results.length()>0?true:false){
+                    JSONObject iii=results.getJSONObject(0);
+
+                    JSONObject geometry=iii.getJSONObject("geometry");
+                    JSONObject location=geometry.getJSONObject( "location");
+
+                    //String lat=location.getString()
+
+                }
+
+
+
+
+            }catch (Exception e){
+
+            }
+
+            Log.v("Tag>>>>>>>>>>>",""+s);
+        }
+    }
+
+}
  
