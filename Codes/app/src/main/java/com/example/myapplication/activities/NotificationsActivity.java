@@ -43,3 +43,31 @@ public class NotificationsActivity extends Activity {
     private static ArrayList<Integer> removedItems;
     SharedPreferences sharedPreferences;
     private List<NotificationModel> list;
+
+    
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(R.layout.activity_notification);
+        myOnClickListener = new MyOnClickListener(this);
+        sharedPreferences = getSharedPreferences("AuthenticationPref", Context.MODE_PRIVATE);
+
+        ((ImageView) findViewById(R.id.backImage)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+        recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
+        recyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        removedItems = new ArrayList<Integer>();
+        if (Utill.isNetworkAvailable(NotificationsActivity.this)) {
+            Query query1 = FirebaseDatabase.getInstance().getReference("Requests");/*.orderByChild("email").equalTo(emailId);*/
+            data = new ArrayList<>();
+            final String emailId=new SharedPreference(NotificationsActivity.this).getPrefValue(getString(R.string.email_id));
+            query1.addChildEventListener(new ChildEventListener()
