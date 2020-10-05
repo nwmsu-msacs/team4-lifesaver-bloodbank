@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_two">
+    <ScrollView
+        android:id="@+id/mainScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/separator" />
+
+            <LinearLayout
+                android:id="@+id/menuHomeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/menu_min_height"
+                android:background="@color/bg_two"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+               >
+
+                <ImageView
+                    android:layout_width="@dimen/menu_icon_51"
+                    android:layout_height="@dimen/menu_icon_51"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/resident"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/menu_home_icon"></ImageView>
+
+                <com.example.myapplication.util.CustomTextView
+                    android:id="@+id/menuHomeTxtId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/menu_margin_left"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="@dimen/text_narmal"
+                    android:layout_weight="1"
+                    android:text="@string/menu_home"
+                    android:textColor="@color/text_color"/>
+
+                <ImageView
+                    android:layout_width="@dimen/menu_arrow_h_w"
+                    android:layout_height="@dimen/menu_arrow_h_w"
+                    android:layout_marginRight="@dimen/menu_margin_right"
+                    android:background="@drawable/arr_red_10_10"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:id="@+id/menu_home_arrow"></ImageView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/separator" />
+            <LinearLayout
+                android:id="@+id/menuProfileLayout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/menu_min_height"
+                android:background="@color/bg_two"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/menu_icon_51"
+                    android:layout_height="@dimen/menu_icon_51"
+                    android:layout_marginLeft="@dimen/menu_margin_left"
+                    android:background="@drawable/menu_profile"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:id="@+id/menu_profile_icon"></ImageView>
+
+                <com.example.myapplication.util.CustomTextView
+                    android:id="@+id/menuProfileTxtId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/menu_margin_left"
+                    android:textSize="@dimen/text_narmal"
+                    android:layout_weight="1"
+                    android:text="@string/menu_profile"
+                    android:textColor="@color/text_color"/>
+
+                <ImageView
+                    android:layout_width="@dimen/menu_arrow_h_w"
+                    android:layout_height="@dimen/menu_arrow_h_w"
+                    android:layout_marginRight="@dimen/menu_margin_right"
+                    android:background="@drawable/arr_red_10_10"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:id="@+id/menu_profile_arrow"></ImageView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/separator" />
+            <LinearLayout
+                android:id="@+id/menuContactLayout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/menu_min_height"
+                android:background="@color/bg_two"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+               >
+
+                <ImageView
+                    android:layout_width="@dimen/menu_icon_51"
+                    android:layout_height="@dimen/menu_icon_51"
+                    android:layout_marginLeft="@dimen/menu_margin_left"
+                    android:background="@drawable/menu_contactus"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:id="@+id/menu_contact_icon"></ImageView>
+
+                <com.example.myapplication.util.CustomTextView
+                    android:id="@+id/menuContactTxtId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/menu_margin_left"
+                    android:textSize="@dimen/text_narmal"
+                    android:layout_weight="1"
+                    android:text="@string/menu_contactus"
+
+                    android:textColor="@color/text_color"/>
+
+                <ImageView
+                    android:layout_width="@dimen/menu_arrow_h_w"
+                    android:layout_height="@dimen/menu_arrow_h_w"
+                    android:layout_marginRight="@dimen/menu_margin_right"
+                    android:background="@drawable/arr_red_10_10"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:id="@+id/menu_contact_arrow"></ImageView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/separator" />
+
+            <LinearLayout
+                android:id="@+id/menuTipsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/menu_min_height"
+                android:background="@color/bg_two"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/menu_icon_51"
+                    android:layout_height="@dimen/menu_icon_51"
+                    android:layout_marginLeft="@dimen/menu_margin_left"
+                    android:background="@drawable/menu_tips"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:id="@+id/menu_tips_icon"></ImageView>
+
+                <com.example.myapplication.util.CustomTextView
+                    android:id="@+id/menuTipsTxtId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/menu_margin_left"
+                    android:textSize="@dimen/text_narmal"
+                    android:layout_weight="1"
+                    android:text="@string/menu_blood_tips"
+                    android:textColor="@color/text_color"/>
+
+                <ImageView
+                    android:layout_width="@dimen/menu_arrow_h_w"
+                    android:layout_height="@dimen/menu_arrow_h_w"
+                    android:layout_marginRight="@dimen/menu_margin_right"
+                    android:background="@drawable/arr_red_10_10"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:id="@+id/menu_tips_arrow"></ImageView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/separator" />
+
+            <LinearLayout
+                android:id="@+id/menuAboutLayout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/menu_min_height"
+                android:background="@color/bg_two"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/menu_icon_51"
+                    android:layout_height="@dimen/menu_icon_51"
+                    android:layout_marginLeft="@dimen/menu_margin_left"
+                    android:background="@drawable/menu_aboutus"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:id="@+id/menu_about_icon"></ImageView>
+
+                <com.example.myapplication.util.CustomTextView
+                    android:id="@+id/menuAboutTxtId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/menu_margin_left"
+                    android:textSize="@dimen/text_narmal"
+                    android:layout_weight="1"
+                    android:text="@string/menu_aboutus"
+
+                    android:textColor="@color/text_color"/>
+
+                <ImageView
+                    android:layout_width="@dimen/menu_arrow_h_w"
+                    android:layout_height="@dimen/menu_arrow_h_w"
+                    android:layout_marginRight="@dimen/menu_margin_right"
+                    android:background="@drawable/arr_red_10_10"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:id="@+id/menu_about_arrow"></ImageView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/separator" />
+            <LinearLayout
+                android:id="@+id/menuFaqsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/menu_min_height"
+                android:background="@color/bg_two"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/menu_icon_51"
+                    android:layout_height="@dimen/menu_icon_51"
+                    android:layout_marginLeft="@dimen/menu_margin_left"
+                    android:background="@drawable/menu_faq"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:id="@+id/menu_faqs_icon"></ImageView>
+
+                <com.example.myapplication.util.CustomTextView
+                    android:id="@+id/menuFaqsTxtId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/menu_margin_left"
+                    android:textSize="@dimen/text_narmal"
+                    android:layout_weight="1"
+                    android:text="@string/menu_faqs"
+
+                    android:textColor="@color/text_color"/>
+
+                <ImageView
+                    android:layout_width="@dimen/menu_arrow_h_w"
+                    android:layout_height="@dimen/menu_arrow_h_w"
+                    android:layout_marginRight="@dimen/menu_margin_right"
+                    android:background="@drawable/arr_red_10_10"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:id="@+id/menu_faqs_arrow"></ImageView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/separator" />
+
+            <LinearLayout
+                android:id="@+id/menuLogoutLayout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/menu_min_height"
+                android:background="@color/bg_two"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/menu_icon_51"
+                    android:layout_height="@dimen/menu_icon_51"
+                    android:layout_marginLeft="@dimen/menu_margin_left"
+                    android:background="@drawable/menu_logout"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:id="@+id/menu_logout_icon"></ImageView>
+
+                <com.example.myapplication.util.CustomTextView
+                    android:id="@+id/menuLogoutTxtId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/menu_margin_left"
+                    android:textSize="@dimen/text_narmal"
+                    android:layout_weight="1"
+                    android:text="@string/menu_logout"
+
+                    android:textColor="@color/text_color"/>
+
+                <ImageView
+                    android:layout_width="@dimen/menu_arrow_h_w"
+                    android:layout_height="@dimen/menu_arrow_h_w"
+                    android:layout_marginRight="@dimen/menu_margin_right"
+                    android:background="@drawable/arr_red_10_10"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:id="@+id/menu_logout_arrow"></ImageView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/separator" />
+
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
