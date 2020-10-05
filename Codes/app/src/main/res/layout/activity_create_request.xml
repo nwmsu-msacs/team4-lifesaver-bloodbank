@@ -161,5 +161,24 @@
                 android:imeOptions="actionNext"
 
                 />
+				<com.example.myapplication.util.CustomTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/interViewGap"
+                android:text="@string/MobileNo"
+                android:textColor="@color/text_color" />
+				<com.example.myapplication.util.CustomEditText
+                android:id="@+id/mNumber"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edit_text_height"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/rectangle_bg"
+                android:inputType="number"
+                android:maxLength="12"
+                android:imeOptions="actionNext"
+                android:paddingLeft="@dimen/edit_pading_left"
+
+                />
+
 
             
