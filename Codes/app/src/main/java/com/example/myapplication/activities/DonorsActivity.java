@@ -267,6 +267,7 @@ public class DonorsActivity extends Activity implements View.OnClickListener, Ad
             Utill.showToast(this,"Donors are not available");
         }else {
             data = (ArrayList) list;
+
             searchLayout.setVisibility(View.GONE);
             recyclerView.setVisibility(View.VISIBLE);
             adapter = new ShowDonorsAdapter(data);
@@ -402,5 +403,38 @@ public class DonorsActivity extends Activity implements View.OnClickListener, Ad
             countNotifications.setVisibility(View.GONE);
         }
     }
+
+
+
+
+    /** A method to download json data from url */
+    private String downloadUrl(String strUrl) throws IOException {
+        String data = "";
+        InputStream iStream = null;
+        HttpURLConnection urlConnection = null;
+        try{
+            URL url = new URL(strUrl);
+            urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection.connect();
+            iStream = urlConnection.getInputStream();
+           BufferedReader br = new BufferedReader(new InputStreamReader(iStream));
+            StringBuffer sb  = new StringBuffer();
+            String line = "";
+            while( ( line = br.readLine())  != null){
+                sb.append(line);
+            }
+            data = sb.toString();
+
+            br.close();
+
+        }catch(Exception e){
+            Log.d("Exception", e.toString());
+        }finally{
+            iStream.close();
+            urlConnection.disconnect();
+        }
+        return data;
+    }
+
 
  
