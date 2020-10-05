@@ -40,7 +40,17 @@ name=(TextView)findViewById(R.id.nameTxt);
         emailId=(TextView)findViewById(R.id.emailTxt);
         gender=(TextView)findViewById(R.id.genderTxt);
         location=(TextView)findViewById(R.id.locationTxt);
+((ImageView)findViewById(R.id.backImage)).setOnClickListener(this);
+        showDonors= Utill.getDonorsModel();
 
+        name.setText(showDonors.getUserfullName());
+        bGroup.setText(showDonors.getUserBloodGroup());
+        mobileNo.setText(showDonors.getUserMobile());
+        emailId.setText(showDonors.getUserEmail());
+        gender.setText(showDonors.getUserGender());
+        location.setText(showDonors.getUserCity());
+
+        ((Button)findViewById(R.id.callToDonor)).setOnClickListener(this);
 
         
 
