@@ -149,5 +149,17 @@
                 android:layout_marginBottom="@dimen/interViewGap"
                 android:text="Units"
                 android:textColor="@color/text_color" />
+				<com.example.myapplication.util.CustomEditText
+                android:id="@+id/units"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edit_text_height"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/rectangle_bg"
+                android:inputType="number"
+                android:maxLength="2"
+                android:paddingLeft="@dimen/edit_pading_left"
+                android:imeOptions="actionNext"
+
+                />
 
             
