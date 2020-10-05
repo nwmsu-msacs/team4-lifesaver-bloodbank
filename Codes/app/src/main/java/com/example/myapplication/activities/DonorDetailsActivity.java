@@ -34,6 +34,13 @@ public class DonorDetailsActivity extends Activity implements View.OnClickListen
         notificationsBellLayout.setOnClickListener(this);
         countNotifications=(TextView)findViewById(R.id.creditsId);
         new NotificationCountAsycTask(this).execute();
+name=(TextView)findViewById(R.id.nameTxt);
+        bGroup=(TextView)findViewById(R.id.groupTxt);
+        mobileNo=(TextView)findViewById(R.id.phoneTxt);
+        emailId=(TextView)findViewById(R.id.emailTxt);
+        gender=(TextView)findViewById(R.id.genderTxt);
+        location=(TextView)findViewById(R.id.locationTxt);
+
 
         
 
