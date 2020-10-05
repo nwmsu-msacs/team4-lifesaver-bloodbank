@@ -46,7 +46,6 @@ public class JSONParser {
     public static String makeHttpRequest(Context context, String url, String method, List<NameValuePair> params) {
 
         try {
-            Log.v("anand>>", ">>>>>>>>>>>>>>>00000000000 " + params);
             HttpConnectionParams httpConnectionParams =  null;
             HttpParams httpParams = new BasicHttpParams();
             httpConnectionParams.setSoTimeout(httpParams, 20000);
@@ -60,11 +59,11 @@ public class JSONParser {
 
             // Checking http request method type
             if (method == "POST") {
-                Log.v(Utill.LOG, "anand>>>>>>>>>>>>>>>" + url);
+                
                 HttpPost httpPost = new HttpPost(url);
                 // adding post params
                 if (params != null) {
-                    Log.v(Utill.LOG, "anand>>>>>>>>>>>>>>>" +context.getClass().getName()+ url+params);
+                  
                     httpPost.setEntity(new UrlEncodedFormEntity(params));
                 }
 
@@ -72,7 +71,7 @@ public class JSONParser {
 
             } else if (method == "GET") {
                 // appending params to url
-                Log.v(Utill.LOG, "anand>>>>>>>>>>>>>>>" + url);
+                
                 if (params != null) {
                     String paramString = URLEncodedUtils
                             .format(params, "utf-8");
@@ -85,7 +84,7 @@ public class JSONParser {
             }
             httpEntity = httpResponse.getEntity();
             response = EntityUtils.toString(httpEntity);
-            Log.v(Utill.LOG, "anand>>>>>>>>>>>>>>>" + response);
+           
 
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
