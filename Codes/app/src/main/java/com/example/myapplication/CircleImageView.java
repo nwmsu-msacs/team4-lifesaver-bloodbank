@@ -296,3 +296,133 @@ public class CircleImageView extends ImageView {
         applyColorFilter();
         invalidate();
     }
+
+
+    @Override
+    public ColorFilter getColorFilter() {
+        return mColorFilter;
+    }
+
+    private void applyColorFilter() {
+        if (mBitmapPaint != null) {
+            mBitmapPaint.setColorFilter(mColorFilter);
+        }
+    }
+
+    private Bitmap getBitmapFromDrawable(Drawable drawable) {
+        if (drawable == null) {
+            return null;
+        }
+
+        if (drawable instanceof BitmapDrawable) {
+            return ((BitmapDrawable) drawable).getBitmap();
+        }
+
+        try {
+            Bitmap bitmap;
+
+            if (drawable instanceof ColorDrawable) {
+                bitmap = Bitmap.createBitmap(COLORDRAWABLE_DIMENSION, COLORDRAWABLE_DIMENSION, BITMAP_CONFIG);
+            } else {
+                bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), BITMAP_CONFIG);
+            }
+
+            Canvas canvas = new Canvas(bitmap);
+            drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+            drawable.draw(canvas);
+            return bitmap;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    private void initializeBitmap() {
+        if (mDisableCircularTransformation) {
+            mBitmap = null;
+        } else {
+            mBitmap = getBitmapFromDrawable(getDrawable());
+        }
+        setup();
+    }
+
+    private void setup() {
+        if (!mReady) {
+            mSetupPending = true;
+            return;
+        }
+
+        if (getWidth() == 0 && getHeight() == 0) {
+            return;
+        }
+
+        if (mBitmap == null) {
+            invalidate();
+            return;
+        }
+
+        mBitmapShader = new BitmapShader(mBitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+
+        mBitmapPaint.setAntiAlias(true);
+        mBitmapPaint.setShader(mBitmapShader);
+
+        mBorderPaint.setStyle(Paint.Style.STROKE);
+        mBorderPaint.setAntiAlias(true);
+        mBorderPaint.setColor(mBorderColor);
+        mBorderPaint.setStrokeWidth(mBorderWidth);
+
+        mFillPaint.setStyle(Paint.Style.FILL);
+        mFillPaint.setAntiAlias(true);
+        mFillPaint.setColor(mFillColor);
+
+        mBitmapHeight = mBitmap.getHeight();
+        mBitmapWidth = mBitmap.getWidth();
+
+        mBorderRect.set(calculateBounds());
+        mBorderRadius = Math.min((mBorderRect.height() - mBorderWidth) / 2.0f, (mBorderRect.width() - mBorderWidth) / 2.0f);
+
+        mDrawableRect.set(mBorderRect);
+        if (!mBorderOverlay && mBorderWidth > 0) {
+            mDrawableRect.inset(mBorderWidth - 1.0f, mBorderWidth - 1.0f);
+        }
+        mDrawableRadius = Math.min(mDrawableRect.height() / 2.0f, mDrawableRect.width() / 2.0f);
+
+        applyColorFilter();
+        updateShaderMatrix();
+        invalidate();
+    }
+
+    private RectF calculateBounds() {
+        int availableWidth  = getWidth() - getPaddingLeft() - getPaddingRight();
+        int availableHeight = getHeight() - getPaddingTop() - getPaddingBottom();
+
+        int sideLength = Math.min(availableWidth, availableHeight);
+
+        float left = getPaddingLeft() + (availableWidth - sideLength) / 2f;
+        float top = getPaddingTop() + (availableHeight - sideLength) / 2f;
+
+        return new RectF(left, top, left + sideLength, top + sideLength);
+    }
+
+    private void updateShaderMatrix() {
+        float scale;
+        float dx = 0;
+        float dy = 0;
+
+        mShaderMatrix.set(null);
+
+        if (mBitmapWidth * mDrawableRect.height() > mDrawableRect.width() * mBitmapHeight) {
+            scale = mDrawableRect.height() / (float) mBitmapHeight;
+            dx = (mDrawableRect.width() - mBitmapWidth * scale) * 0.5f;
+        } else {
+            scale = mDrawableRect.width() / (float) mBitmapWidth;
+            dy = (mDrawableRect.height() - mBitmapHeight * scale) * 0.5f;
+        }
+
+        mShaderMatrix.setScale(scale, scale);
+        mShaderMatrix.postTranslate((int) (dx + 0.5f) + mDrawableRect.left, (int) (dy + 0.5f) + mDrawableRect.top);
+
+        mBitmapShader.setLocalMatrix(mShaderMatrix);
+    }
+
+}
