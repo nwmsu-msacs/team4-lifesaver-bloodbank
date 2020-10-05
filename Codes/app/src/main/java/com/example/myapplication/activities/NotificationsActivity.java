@@ -93,3 +93,40 @@ public class NotificationsActivity extends Activity {
                         recyclerView.setAdapter(adapter);
                     }
                 }
+                
+                @Override
+                public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                }
+
+                @Override
+                public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+                }
+
+                @Override
+                public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
+
+
+
+            //  new NotificationsAsyncTask(NotificationsActivity.this).execute();
+        } else {
+            Toast.makeText(NotificationsActivity.this, getResources().getString(R.string.noInternet), Toast.LENGTH_SHORT).show();
+        }
+
+
+        //adapter = new ShowAllRequestsAdapter(data);
+        //recyclerView.setAdapter(adapter);
+    }
+
+
+
