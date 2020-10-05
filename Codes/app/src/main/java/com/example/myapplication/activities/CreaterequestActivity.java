@@ -227,3 +227,45 @@ public class CreaterequestActivity extends Activity implements View.OnClickListe
         finish();
        // Toast.makeText(context,"Invalid User Name or Password",Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    public void onSuccess(String response) {
+
+        if (progressDialog != null) {
+            progressDialog.dismiss();
+            progressDialog.cancel();
+        }
+
+        Log.v("anand","onSuccess"+response);
+        if (response != null) {
+            if (response.equalsIgnoreCase("Add Request Successful")) {
+
+                responseRequest();
+            } else {
+                Toast.makeText(CreaterequestActivity.this, "Request failed", Toast.LENGTH_SHORT).show();
+
+            }
+        }else {
+            Toast.makeText(CreaterequestActivity.this, "Could not connect to the server", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    @Override
+    public void onFailure(String failResponse) {
+
+    }
+    public void responseCount(String response){
+        int k= Integer.parseInt(response);
+        if(k>0) {
+            countNotifications.setVisibility(View.VISIBLE);
+            countNotifications.setText(response);
+        }
+        else{
+            countNotifications.setVisibility(View.GONE);
+        }
+    }
+    public void responseEditRequest(){
+
+    }
+}
