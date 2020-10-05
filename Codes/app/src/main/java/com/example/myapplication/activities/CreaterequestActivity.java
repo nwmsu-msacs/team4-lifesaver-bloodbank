@@ -185,3 +185,45 @@ public class CreaterequestActivity extends Activity implements View.OnClickListe
         dpd.show();
         dpd.setIcon(R.drawable.calander);
     }
+
+    
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.request:
+                callAddRequest();
+                break;
+            case R.id.notificationsBellLayout:
+                startActivity(new Intent(this,NotificationsActivity.class));
+                    break;
+            case R.id.needOn:
+                date();
+
+        }
+    }
+
+    private void callAddRequest(){
+
+        if (Utill.isNetworkAvailable(CreaterequestActivity.this)) {
+
+            getStringsFromViews();
+
+        } else {
+            Toast.makeText(CreaterequestActivity.this, getResources().getString(R.string.noInternet), Toast.LENGTH_SHORT).show();
+        }
+
+    }
+    public void responseRequest(){
+
+        Utill.showToast(this,"Request successfully created");
+        parentName.setText("");
+        bGroup.setSelection(0);
+        needOn.setText("");
+        units.setText("");
+        mNumber.setText("");
+        location.setText("");
+
+        startActivity(new Intent(this,MyRequestsActivity.class));
+        finish();
+       // Toast.makeText(context,"Invalid User Name or Password",Toast.LENGTH_SHORT).show();
+    }
