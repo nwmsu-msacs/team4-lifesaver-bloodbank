@@ -102,6 +102,8 @@ public class NotificationsActivity extends Activity {
                 @Override
                 public void onChildRemoved(@NonNull DataSnapshot snapshot) {
 
+
+
                 }
 
                 @Override
@@ -127,6 +129,50 @@ public class NotificationsActivity extends Activity {
         //adapter = new ShowAllRequestsAdapter(data);
         //recyclerView.setAdapter(adapter);
     }
+
+
+
+    private static class MyOnClickListener implements View.OnClickListener {
+
+        private final Context context;
+
+        private MyOnClickListener(Context context) {
+            this.context = context;
+        }
+
+        @Override
+        public void onClick(View v) {
+            removeItem(v);
+        }
+
+        private void removeItem(View v) {
+            int selectedItemPosition = recyclerView.getChildPosition(v);
+            RecyclerView.ViewHolder viewHolder = recyclerView.findViewHolderForPosition(selectedItemPosition);
+
+
+
+           /* TextView textViewName = (TextView) viewHolder.itemView.findViewById(R.id.userName);
+            String selectedName = (String) textViewName.getText();
+            int selectedItemId = -1;
+            for (int i = 0; i < ApplicationHolder.userNames.length; i++) {
+                if (selectedName.equals(ApplicationHolder.userNames[i])) {
+                    //selectedItemId = MyData.id_[i];
+                }
+            }
+            removedItems.add(selectedItemId);
+            data.remove(selectedItemPosition);
+            adapter.notifyItemRemoved(selectedItemPosition);*/
+        }
+    }
+
+    public static void responseRequests(List<NotificationModel> list) {
+        data = (ArrayList) list;
+        adapter = new NotificationsAdpter(data);
+        recyclerView.setAdapter(adapter);
+    }
+}
+
+
 
 
 
