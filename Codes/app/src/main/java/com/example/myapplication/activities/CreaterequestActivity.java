@@ -103,3 +103,85 @@ public class CreaterequestActivity extends Activity implements View.OnClickListe
 
 
     }
+    private void getStringsFromViews(){
+        parentNameStr=parentName.getText().toString().trim();
+        bGroupStr=bGroup.getSelectedItem().toString().trim();
+        needOnStr=needOn.getText().toString().trim();
+        unitsStr=units.getText().toString().trim();
+        mNumberStr=mNumber.getText().toString().trim();
+        locationStr=location.getText().toString().trim();
+               if(parentNameStr.equals("")){
+            Utill.showToast(this,"Please enter patient name");
+        }
+        else if(bGroupStr.equals("Select Blood Group")){
+            Utill.showToast(this,"Please enter blood group");
+        }
+        else if(needOnStr.equals("")){
+            Utill.showToast(this,"Please enter patient name");
+        }
+        else if(unitsStr.equals("")){
+            Utill.showToast(this,"Please enter units of blood needed");
+        }
+        else if(mNumberStr.equals("")){
+            Utill.showToast(this,"Please enter mobile no");
+        }
+        else if(locationStr.equals("")){
+            Utill.showToast(this,"Please enter patient location");
+        }
+        else{
+
+            progressDialog=new ProgressDialog(CreaterequestActivity.this);
+                   progressDialog.setMessage(getResources().getString(R.string.please_wait));
+                   progressDialog.setCancelable(false);
+                   progressDialog.show();
+
+            if(flag){
+                ShowAllRequestsModel showAllRequestsModel=Utill.getShowAllRequestsModel();
+                //Toast.makeText(CreaterequestActivity.this, getResources().getString(R.string.progress), Toast.LENGTH_SHORT).show();
+
+                String placer="pname="+parentNameStr+"&Bgroup="+bGroupStr+"&needon="+needOnStr+"&units="+unitsStr+"&mNumber="+mNumberStr+"&location="+locationStr+"&requestId="+showAllRequestsModel.getRequestId();
+                new EditRequestAsyncTask(this).execute(placer.replace(" ","%20"));
+                //http://websitesdev.in/jjyothi/index.php/Bloodrequest/editrequestformobile?pname=p&Bgroup=B+&needon=2016-10-31&units=2&mNumber=1234567890&location=kompally&requestId=13
+//                new AddRequestAsyncTask(CreaterequestActivity.this).execute("pname="+parentNameStr+"&Bgroup="+bGroupStr+"&needon="+needOnStr+"&units="+unitsStr+"&mNumber="+mNumberStr+"&location="+locationStr+"&requestId="+);
+
+            }else{
+            /*    String placer="addedby="+sharedPreference.getPrefValue("userMail")+"&pname="
+                        +parentNameStr+"&Bgroup="+bGroupStr+"&needon="+needOnStr
+                        +"&units="+unitsStr+"&mNumber="+mNumberStr+"&location="+locationStr;
+*/
+
+                //new AddRequestAsyncTask(CreaterequestActivity.this).execute(placer.replace(" ","%20"));
+
+                final String emailId=new SharedPreference(CreaterequestActivity.this).getPrefValue(getString(R.string.email_id));
+                final String mobile=new SharedPreference(CreaterequestActivity.this).getPrefValue(getString(R.string.mobile_no));
+                DatabaseReference quizRef = FirebaseDatabase.getInstance().getReference("Requests");
+
+                String key=quizRef.push().getKey();
+                assert key != null;
+                quizRef.child(key).setValue(new CreateRequest(needOnStr,locationStr,emailId,bGroupStr,key,mobile,parentNameStr,unitsStr,""));
+
+
+                progressDialog.dismiss();
+                responseRequest();
+
+                //addedby=suresh.pegadapelli@gmail.com&pname=pegadapeli&Bgroup=O+&needon=2016-12-31&units=2&mNumber=1234567890&location=Ameerpet
+                //http://websitesdev.in/jjyothi/index.php/Bloodrequest/addRequest?pname=pegadapeli&Bgroup=B+&needon=2016-10-31&units=2&mNumber=1234567890&location=kompally
+            }
+        }
+    }
+    public void date() {
+        final Calendar c = Calendar.getInstance();
+        mYear = c.get(Calendar.YEAR);
+        mMonth = c.get(Calendar.MONTH);
+        mDay = c.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog dpd = new DatePickerDialog(this,
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                           needOn.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                    }
+                }, mYear, mMonth, mDay);
+        dpd.show();
+        dpd.setIcon(R.drawable.calander);
+    }
