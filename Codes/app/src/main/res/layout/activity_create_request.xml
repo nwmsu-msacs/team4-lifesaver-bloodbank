@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <!--android:background="@drawable/login_bg"-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.example.myapplication.util.CustomTextView
+            android:id="@+id/headTV"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="Create Request"
+            android:textStyle="bold"
+            android:background="@color/action"
+            android:textColor="@color/button_text_color"
+            android:textSize="@dimen/text_xlarge" />
+
+
+        <ImageView
+            android:id="@+id/backImage"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="@dimen/interViewGap"
+            android:src="@drawable/back_30"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+        <RelativeLayout
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/notificationsBellLayout">
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/notification_bell"/>
+            <com.example.myapplication.util.CustomTextView
+                android:id="@+id/creditsId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="8dp"
+                android:textColor="#fff"
+                android:background="@drawable/circle"
+                android:textSize="12dp"
+                android:gravity="center"
+                android:paddingLeft="3dp"
+                android:paddingRight="3dp"
+                android:paddingBottom="2dp"
+                android:paddingTop="2dp"
+                android:visibility="gone"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical">
+
+            <com.example.myapplication.util.CustomTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/interViewGap"
+                android:text="Patient Name"
+                android:textColor="@color/text_color" />
+
+            <com.example.myapplication.util.CustomEditText
+                android:id="@+id/parentName"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edit_text_height"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/rectangle_bg"
+                android:paddingLeft="@dimen/edit_pading_left"
+                android:imeOptions="actionNext"
+                android:maxLines="1"
+                android:singleLine="true"
+
+                />
+
+            <com.example.myapplication.util.CustomTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/interViewGap"
+                android:text="Blood Group"
+                android:textColor="@color/text_color" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/rectangle_bg"
+                    android:paddingLeft="10dp"
+                    android:entries="@array/blood_groups"
+                    android:id="@+id/bGroup"
+                    />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:src="@drawable/down_arrow"
+                    android:layout_marginRight="10dp"/>
+            </RelativeLayout>
+
+           
+
+            <com.example.myapplication.util.CustomTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="@dimen/interViewGap"
+                android:text="Need On"
+                android:textColor="@color/text_color" />
+
+            <com.example.myapplication.util.CustomTextView
+                android:id="@+id/needOn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edit_text_height"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/rectangle_bg"
+                android:inputType="number"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/edit_pading_left"
+                android:imeOptions="actionNext"/>
+
+            <com.example.myapplication.util.CustomTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/interViewGap"
+                android:text="Units"
+                android:textColor="@color/text_color" />
+
+            
