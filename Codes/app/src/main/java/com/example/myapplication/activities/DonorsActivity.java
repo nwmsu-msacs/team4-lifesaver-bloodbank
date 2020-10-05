@@ -436,5 +436,57 @@ public class DonorsActivity extends Activity implements View.OnClickListener, Ad
         return data;
     }
 
+    private class PlacesTask extends AsyncTask<String, Void, String> {
 
+        @Override
+        protected String doInBackground(String... place) {
+            String data = "";
+            // Obtain browser key from https://code.google.com/apis/console
+            String key = "key=AIzaSyCRLa4LQZWNQBcjCYcIVYA45i9i8zfClqc";
+
+            //String key ="key=AIzaSyDul8RSZhIYBEi6TDb3y1t7lW9dq9aNV28";
+            String input="";
+
+            try {
+                input = "input=" + URLEncoder.encode(place[0], "utf-8");
+            } catch (UnsupportedEncodingException e1) {
+                e1.printStackTrace();
+            }
+
+
+            // place type to be searched
+            String types = "types=geocode";
+
+            // Sensor enabled
+            String sensor = "sensor=true";
+
+            // Building the parameters to the web service
+            String parameters = input+"&"+types+"&"+sensor+"&"+key;
+
+            // Output format
+            String output = "json";
+
+            // Building the url to the web service
+            String url = "https://maps.googleapis.com/maps/api/place/autocomplete/"+output+"?"+parameters;
+
+            try{
+                // Fetching the data from web service in background
+
+                Log.d("url>>>>>>>>>>>>>>>>",url);
+                data = downloadUrl(url);
+            }catch(Exception e){
+                Log.d("Background Task",e.toString());
+            }
+            return data;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+
+            // Creating ParserTask
+            parserTask = new ParserTask();
+            parserTask.execute(result);
+        }
+    }
  
