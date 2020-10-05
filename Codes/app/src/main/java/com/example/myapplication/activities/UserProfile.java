@@ -499,3 +499,61 @@ private void viewRegistration() {
 
 
 	}
+
+	@Override
+	public void onFailure(String failResponse) {
+			if(progressDialog!=null) {
+				progressDialog.dismiss();
+				progressDialog.cancel();
+			}
+		if(failResponse.equals(""))
+		  Toast.makeText(context,"Could not connect to the server", Toast.LENGTH_SHORT).show();
+		else{
+			Toast.makeText(context,failResponse, Toast.LENGTH_SHORT).show();
+
+		}
+
+	}
+	public void updateProfile(){
+		if(nameTV.getText().toString().equals(""))
+			Utill.showToast(this,"Please enter name");
+		else if(mobileNOTV.getText().toString().equalsIgnoreCase(""))
+			Utill.showToast(this,"Please enter mobile no");
+		else if(recidentNoTV.getText().toString().equalsIgnoreCase(""))
+			Utill.showToast(this,"Please enter resident phone no");
+		else if(bloodGroupTv.getText().toString().equalsIgnoreCase(""))
+			Utill.showToast(this,"Please enter blood group");
+		else if(genderTv.getText().toString().equalsIgnoreCase(""))
+			Utill.showToast(this,"Please enter gender");
+		else if(dobTv.getText().toString().equalsIgnoreCase(""))
+			Utill.showToast(this,"Please enter Date of Birth");
+		else if(weghtTv.getText().toString().equalsIgnoreCase(""))
+			Utill.showToast(this,"Please enter weight");
+		else if(mailTv.getText().toString().equalsIgnoreCase(""))
+			Utill.showToast(this,"Please enter email");
+		else if(howOftenTv.getText().toString().equalsIgnoreCase(""))
+			Utill.showToast(this,"Please enter how often");
+		else if(cityTv.getText().toString().equalsIgnoreCase(""))
+			Utill.showToast(this,"Please enter City");
+		else if(addressTv.getText().toString().equalsIgnoreCase(""))
+			Utill.showToast(this,"Please enter Address");
+
+		else{
+			if (Utill.isNetworkAvailable(UserProfile.this)) {
+				/*profileImage.setDrawingCacheEnabled(true);
+				profileImage.buildDrawingCache();
+				Bitmap bm = profileImage.getDrawingCache();
+				ByteArrayOutputStream stream = new ByteArrayOutputStream();
+				bm.compress(Bitmap.CompressFormat.PNG, 100, stream);
+				byte[] byteArray = stream.toByteArray();*/
+
+				//Profile/updateDonorprofile?donor_name=&dob=&blood=&weight=&res_phno=&address1=&city_name=&mob_no=&userID=&image=
+				//http://websitesdev.in/jjyothi/index.php/Profile/updateDonorprofile?donor_name=&dob=&blood=&weight=&res_phno=&address1=&city_name=&mob_no=&userID=
+				String placer="email="+sharedPreference.getPrefValue("userMail")+"&donor_name="+nameTV.getText().toString()+"&dob="+dobTv.getText().toString()+"&blood="+bloodGroupTv.getText().toString()+"&weight="+weghtTv.getText().toString()+"&res_phno="+recidentNoTV.getText().toString()+"&address1="+addressTv.getText().toString()+"&city_name="+cityTv.getText().toString()+"&mob_no="+mobileNOTV.getText().toString()+"&userID="+sharedPreference.getPrefValue(ApplicationHolder.USERNAME);
+				new UpdateProfileAsyncTask(this).execute(placer.replace(" ","%20"));
+			} else {
+				Toast.makeText(this, getResources().getString(R.string.noInternet), Toast.LENGTH_SHORT).show();
+			}
+		}
+
+	}
