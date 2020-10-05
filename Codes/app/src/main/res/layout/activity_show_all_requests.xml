@@ -1,0 +1,73 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.example.myapplication.util.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="Blood Requests"
+            android:textStyle="bold"
+            android:background="@color/action"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/button_text_color"
+            android:textSize="@dimen/text_xlarge" />
+
+
+        <ImageView
+            android:id="@+id/backImage"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="@dimen/interViewGap"
+            android:src="@drawable/back_30"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+        <RelativeLayout
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/notificationsBellLayout">
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/notification_bell"/>
+            <com.example.myapplication.util.CustomTextView
+                android:id="@+id/creditsId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="8dp"
+                android:textColor="#fff"
+                android:background="@drawable/circle"
+                android:textSize="12dp"
+                android:gravity="center"
+                android:paddingLeft="3dp"
+                android:paddingRight="3dp"
+                android:paddingBottom="2dp"
+                android:paddingTop="2dp"
+                android:visibility="gone"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/interViewGap"
+        android:layout_marginBottom="@dimen/intraViewGap"
+        android:layout_marginRight="@dimen/intraViewGap"
+        android:layout_marginLeft="@dimen/intraViewGap"
+        >
+        
