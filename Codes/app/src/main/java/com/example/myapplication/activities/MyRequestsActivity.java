@@ -147,3 +147,31 @@ public class MyRequestsActivity extends Activity implements View.OnClickListener
         }
 
     }
+
+
+    @Override
+    public void onBackPressed() {
+
+        startActivity(new Intent(this,ShowAllRequestsActivity.class));
+        finish();
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.notificationsBellLayout: startActivity(new Intent(this,NotificationsActivity.class));
+                break;
+//            case R.id.editRequest:{
+//                startActivity(new Intent(MyRequestsActivity.this,CreaterequestActivity.class).putExtra("myrequest","edit"));
+//                break;
+//            }
+//            case R.id.addNewRequest:{
+//
+//                startActivity(new Intent(ShowAllRequestsActivity.this, ViewPagerActivity.class));
+//                break;
+//            }
+
+        }
+
+
+    }
