@@ -9,9 +9,7 @@ import com.example.myapplication.model.ShowAllRequestsModel;
 import com.example.myapplication.model.ShowDonors;
 
 
-/**
- * Created by Anand1 on 11/02/2016.
- */
+
 public class Utill {
 
     public static String LOG="Tag>>>>>>>>>>>>>>>>>>>";
