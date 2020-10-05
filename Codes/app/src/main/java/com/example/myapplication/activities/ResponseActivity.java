@@ -162,6 +162,57 @@ public class ResponseActivity extends Activity implements ServiceResponseHandler
 
     }
 
+     @Override
+    public void onSuccess(String response) {
+
+
+        list=new ArrayList<>();
+
+        if (response != null) {
+
+            try {
+                JSONArray responseJSONArray=new JSONArray(response);
+                JSONArray innerArray=responseJSONArray.getJSONArray(0);
+
+                //JSONArray responseJSONArray1=new JSONArray(responseJSONArray);
+                Log.v("anand>>",">>>>>sssssss"+response);
+                for(int i=0;i<innerArray.length();i++) {
+                    HashMap<String, String> map = new HashMap<String, String>();
+                    JSONObject jsonObject = innerArray.getJSONObject(i);
+
+                    ShowAllRequestsModel showAllRequestsModel=new ShowAllRequestsModel();
+                    //responseStatus = jsonObject.getString("status");
+                    showAllRequestsModel.setRequestId(jsonObject.getString("requestId"));
+                    showAllRequestsModel.setpName(jsonObject.getString("patientName"));
+                    showAllRequestsModel.setpBloodGroup(jsonObject.getString("patientBloodgroup"));
+                    showAllRequestsModel.setpBloodOn(jsonObject.getString("bloodneedOn"));
+                    showAllRequestsModel.setpNoOfUnits(jsonObject.getString("noofUnits"));
+                    showAllRequestsModel.setMobileNo(jsonObject.getString("mobileNumber"));
+                    showAllRequestsModel.setPatientAddress(jsonObject.getString("hospitalAddress"));
+            
+
+                    list.add(showAllRequestsModel);
+                    adapter = new ResponseAdapter((ArrayList<ShowAllRequestsModel>) list);
+                    recyclerView.setAdapter(adapter);
+
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+        } else {
+            Toast.makeText(this, "Could not get the details", Toast.LENGTH_SHORT).show();
+
+        }
+
+        if (progressDialog != null) {
+            progressDialog.dismiss();
+            progressDialog.cancel();
+        }
+
+    }
+
     @Override
     public void onFailure(String failResponse) {
 
