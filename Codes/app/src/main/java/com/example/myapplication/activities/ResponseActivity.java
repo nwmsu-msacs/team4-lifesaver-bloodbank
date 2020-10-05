@@ -24,4 +24,16 @@
 
         }
     }
+     public void responseCount(String response){
+        int k= Integer.parseInt(response);
+        if(k>0) {
+            countNotifications.setVisibility(View.VISIBLE);
+            countNotifications.setText(response);
+        }
+        else{
+            countNotifications.setVisibility(View.GONE);
+        }
+    }
+}
+
    
