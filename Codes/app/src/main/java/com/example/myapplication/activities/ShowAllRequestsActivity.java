@@ -80,3 +80,20 @@ public class ShowAllRequestsActivity extends Activity implements View.OnClickLis
         //adapter = new ShowAllRequestsAdapter(data);
         //recyclerView.setAdapter(adapter);
     }
+ @Override
+    public void onClick(View view) {
+
+        switch (view.getId()){
+            case R.id.myRequests:
+                startActivity(new Intent(ShowAllRequestsActivity.this,MyRequestsActivity.class));
+                break;
+            case R.id.addNewRequest:
+                startActivity(new Intent(ShowAllRequestsActivity.this, CreaterequestActivity.class));
+                break;
+
+            case R.id.notificationsBellLayout: startActivity(new Intent(this,NotificationsActivity.class));
+                break;
+
+        }
+
+    }
