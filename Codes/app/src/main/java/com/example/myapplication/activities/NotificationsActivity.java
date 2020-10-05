@@ -71,3 +71,25 @@ public class NotificationsActivity extends Activity {
             data = new ArrayList<>();
             final String emailId=new SharedPreference(NotificationsActivity.this).getPrefValue(getString(R.string.email_id));
             query1.addChildEventListener(new ChildEventListener()
+            {
+
+                @Override
+                public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                    if(snapshot.exists() && !emailId.equalsIgnoreCase(snapshot.child("email").getValue(String.class)) && !"closed".equalsIgnoreCase(snapshot.child("isClosed").getValue(String.class))){
+                        NotificationModel notificationModel=new NotificationModel();
+                        notificationModel.setNotificationTitle(snapshot.child("group").getValue(String.class)+ " Blood Group Request");
+                        notificationModel.setNotificationId(snapshot.child("id").getValue(String.class));
+                        notificationModel.setGroup(snapshot.child("group").getValue(String.class));
+                        notificationModel.setNotificationAddress(snapshot.child("city").getValue(String.class));
+                        notificationModel.setNotificationContactPerson(snapshot.child("patientName").getValue(String.class));
+                        notificationModel.setNotificationDesc("Requited Quantity "+snapshot.child("units").getValue(String.class)+" Units");
+                        notificationModel.setNotificationCreatedOn(snapshot.child("date").getValue(String.class));
+                        notificationModel.setNotificationFrom(snapshot.child("mobile").getValue(String.class));
+                        notificationModel.setUnits(snapshot.child("units").getValue(String.class));
+                        notificationModel.setEmail(snapshot.child("email").getValue(String.class));
+                        data.add(notificationModel);
+                        adapter = new NotificationsAdpter(data);
+                        recyclerView.setAdapter(adapter);
+                    }
+                }
