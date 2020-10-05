@@ -71,4 +71,52 @@ public class ShowMyRequestsAdapter extends RecyclerView.Adapter<ShowMyRequestsAd
         return dataSet.size();
     }
 
+
+
+    public  class MyViewHolder extends RecyclerView.ViewHolder {
+
+        // TextView pName,pPhoneNo,pBloodG,pAge,pLocalNo,pBloodNeedOn,noOfUnits,hospitalName,hospitalAddress,userpincode;
+
+        TextView pName;
+        TextView pBloodGroup;
+        TextView pBloodOn;
+    //    TextView pNoOfUnits;
+        TextView mobileNo;
+        TextView hospitalName;
+        TextView patientAddress;
+        //     TextView requestActionStatus;
+        //     TextView requestAcceptedBy;
+        //    TextView requestStatus;
+        ImageView editRequest;
+
+        public MyViewHolder(View itemView) {
+            super(itemView);
+
+
+            this.editRequest = (ImageView) itemView.findViewById(R.id.editRequest);
+
+            editRequest.setTag(getLayoutPosition());
+
+            editRequest.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Utill.showAllRequestsModel=dataSet.get(getLayoutPosition());
+                    context.startActivity(new Intent(context, CreaterequestActivity.class).putExtra("myrequest","edit"));
+                }
+            });
+            this.pName = (TextView) itemView.findViewById(R.id.pName);
+            this.pBloodGroup = (TextView) itemView.findViewById(R.id.pBloodGroup);
+            this.pBloodOn = (TextView) itemView.findViewById(R.id.bloodNeedOn);
+           // this.pNoOfUnits = (TextView) itemView.findViewById(R.id.numberOfUnits);
+            this.mobileNo = (TextView) itemView.findViewById(R.id.mobileNo);
+            this.hospitalName=(TextView)itemView.findViewById(R.id.hospitalName);
+            this.patientAddress = (TextView) itemView.findViewById(R.id.patientAddress);
+            //     this.requestActionStatus = (TextView) itemView.findViewById(R.id.requestActionStatus);
+            //     this.requestAcceptedBy = (TextView) itemView.findViewById(R.id.requestAcceptedBy);
+            //     this.requestStatus = (TextView) itemView.findViewById(R.id.requestStatus);
+        }
+    }
+}
+
+
     
