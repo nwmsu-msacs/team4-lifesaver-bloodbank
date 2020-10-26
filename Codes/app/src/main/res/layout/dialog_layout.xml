@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.example.myapplication.util.CustomTextView
+        android:id="@+id/titleTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_margin="@dimen/intraViewGap"
+        android:padding="4dp"
+        android:textColor="@color/action"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/card_outline"/>
+    <com.example.myapplication.util.CustomTextView
+        android:id="@+id/messageTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:gravity="center"
+        android:layout_margin="@dimen/intraViewGap"
+        android:padding="4dp"
+        android:textColor="@color/colorAccent"/>
+    <com.example.myapplication.util.CustomButton
+        android:id="@+id/okBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ok"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_margin="@dimen/intraViewGap"
+        android:padding="4dp"
+        android:textColor="@color/button_text_color"
+        android:background="@color/action"/>
+    <com.example.myapplication.util.CustomTextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:textColor="@color/bg_two"
+        android:visibility="invisible"
+        android:text="Blood bank Blood bank Blood bank Blood bank Blood bank"/>
+</LinearLayout>
