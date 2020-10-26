@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/action"
+        android:orientation="horizontal">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/home_top_bar"
+        android:background="@color/action"
+        android:orientation="horizontal">
+
+
+            <ToggleButton
+
+                android:id="@+id/menuTgBtnId"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/menu"
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="visible"
+                android:layout_marginLeft="5dp"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:textOff=""
+                android:textOn=""/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center">
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/logo"
+            android:background="@drawable/blood" />
+            <com.example.myapplication.util.CustomTextView
+                android:id="@+id/titleId"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="LIFE SAVER"
+                android:textStyle="bold"
+                android:textColor="@color/button_text_color"
+                android:textSize="25dp" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/notificationsBellLayout">
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/notification_bell"/>
+    <com.example.myapplication.util.CustomTextView
+        android:id="@+id/creditsId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="8dp"
+        android:textColor="#fff"
+        android:background="@drawable/circle"
+        android:textSize="12dp"
+        android:gravity="center"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        android:paddingBottom="2dp"
+        android:paddingTop="2dp"
+        android:visibility="gone"/>
+        </RelativeLayout>
+</RelativeLayout>
+</RelativeLayout>
