@@ -45,28 +45,14 @@
 
                         <com.example.myapplication.CircleImageView
                             android:id="@+id/imageViewprofile"
-                            android:layout_width="74dp"
-                            android:layout_height="91dp"
+                            android:layout_width="117dp"
+                            android:layout_height="111dp"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="@dimen/interViewGap"
                             android:src="@drawable/blood"
                             android:visibility="visible" />
 
-                        <!--  <ImageView
-                              android:id="@+id/imageViewprofile"
-                              android:layout_width="90dip"
-                              android:layout_height="90dip"
-                              android:layout_centerInParent="true"
-                              android:adjustViewBounds="true"
-                              android:background="@drawable/no_img"
-                              android:scaleType="centerCrop" />
-
-                         <ImageView
-                             android:id="@+id/imagef"
-                             android:layout_width="100dp"
-                             android:layout_height="100dp"
-                             android:layout_centerInParent="true"
-                             android:background="@drawable/freame_img" />-->
+                      
                     </RelativeLayout>
 
                     <com.example.myapplication.util.CustomTextView
@@ -75,6 +61,7 @@
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:text="Tap to change image"
+                        android:visibility="invisible"
                         android:textColor="#FFFFFF" />
 
 
@@ -95,13 +82,7 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:visibility="gone" />
-                    <!--
-                         <ImageView
-                        android:id="@+id/circle_view"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/no_img" />
-                    -->
+                   
 
                     <com.example.myapplication.util.CustomTextView
                         android:id="@+id/perentage_tv"
@@ -460,6 +441,185 @@
 
                     </LinearLayout>
 
+                    <com.example.myapplication.util.CustomTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Address"
+                        android:layout_marginLeft="@dimen/interViewGap"
 
+                        android:textColor="@color/action"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:layout_marginTop="@dimen/interViewGap"
+                        android:layout_marginBottom="@dimen/interViewGap"
+                        android:layout_marginLeft="@dimen/intraViewGap"
+                        android:layout_marginRight="@dimen/intraViewGap"                        android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginTop="@dimen/intraViewGap"
+                        android:visibility="gone"
+                        android:orientation="horizontal">
+
+                        <com.example.myapplication.util.CustomTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.9"
+                            android:text="How Often"
+                            android:textColor="@color/text_color" />
+
+                        <com.example.myapplication.util.CustomTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text=":"
+                            android:textColor="@color/text_color" />
+
+                        <com.example.myapplication.util.CustomEditText
+                            android:id="@+id/howOftenTv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.6"
+                            android:background="@drawable/rectangle_bg"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:paddingLeft="@dimen/edit_pading_left"
+                            android:textColor="@color/text_color" />
+
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginTop="@dimen/intraViewGap"
+                        android:orientation="horizontal">
+
+                        <com.example.myapplication.util.CustomTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.9"
+                            android:text="City"
+                            android:textColor="@color/text_color" />
+
+                        <com.example.myapplication.util.CustomTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text=":"
+                            android:textColor="@color/text_color" />
+
+                        <com.example.myapplication.util.CustomEditText
+                            android:id="@+id/cityTv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.6"
+                            android:background="@drawable/rectangle_bg"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:paddingLeft="@dimen/edit_pading_left"
+                            android:textColor="@color/text_color" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginTop="@dimen/intraViewGap"
+                        android:layout_marginBottom="@dimen/intraViewGap"
+                        android:orientation="horizontal">
+
+                        <com.example.myapplication.util.CustomTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.9"
+                            android:text="Address"
+                            android:textColor="@color/text_color" />
+
+                        <com.example.myapplication.util.CustomTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text=":"
+                            android:textColor="@color/text_color" />
+
+                        <com.example.myapplication.util.CustomEditText
+                            android:id="@+id/addressTv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.6"
+                            android:background="@drawable/rectangle_bg"
+                            android:imeOptions="actionDone"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:paddingLeft="@dimen/edit_pading_left"
+                            android:textColor="@color/text_color" />
+
+
+                    </LinearLayout>
+                        </LinearLayout>
+
+                    <com.example.myapplication.util.CustomButton
+                        android:id="@+id/update"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:background="#e43c4b"
+                        android:text="Update"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <com.example.myapplication.util.CustomTextView
+                    android:id="@+id/imageViewupdateprofile"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:gravity="right|center"
+                    android:text="@string/Edit_Profile"
+                    android:textColor="@color/action"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </ScrollView>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/mLeftDrawer"
+        android:layout_width="@dimen/menu_drawer_layout_width"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/content_frame"
+        android:layout_gravity="start|bottom"
+        android:choiceMode="singleChoice"
+        android:divider="@drawable/rectangle_bg"
+        android:dividerHeight="0dp"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/menuBarInclude"
+            layout="@layout/menulayout"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="50dp" />
+    </LinearLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>
