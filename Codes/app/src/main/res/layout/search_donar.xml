@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchLayout"
+        android:orientation="vertical"
+        android:gravity="center">
+<ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/blood"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp">
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rectangle_bg"
+            android:entries="@array/blood_groups"
+            android:paddingLeft="10dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/don_group"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:src="@drawable/down_arrow"
+            android:layout_marginRight="5dp"/>
+    </RelativeLayout>
+        
+        <com.example.myapplication.util.CustomAutoCompleteTextView
+            android:id="@+id/don_city"
+            android:ems="10"
+            android:hint="Please enter your city"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rectangle_bg"
+            android:paddingLeft="10dp"/>
+
+<!--    <com.example.myapplication.util.CustomEditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rectangle_bg"
+        android:hint="City"
+        android:id="@+id/don_city"
+        android:imeOptions="actionDone"
+        android:singleLine="true"
+        android:paddingLeft="10dp"/>-->
+    <com.example.myapplication.util.CustomButton
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:text="Search"
+        android:id="@+id/search"
+        android:textColor="#fff"
+        android:background="#e43c4b"/>
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/my_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:visibility="gone"
+        />
+</LinearLayout>
