@@ -32,16 +32,25 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.example.myapplication.CircleImageView;
 import com.example.myapplication.R;
+import com.example.myapplication.adapter.NotificationsAdpter;
 import com.example.myapplication.animation.CircleDisplay;
 import com.example.myapplication.asynctask.NotificationCountAsycTask;
 import com.example.myapplication.asynctask.UpdateProfileAsyncTask;
 import com.example.myapplication.asynctask.UserProfileAsyncTask;
 import com.example.myapplication.interfaces.ServiceResponseHandler;
+import com.example.myapplication.model.CreateRequest;
+import com.example.myapplication.model.NotificationModel;
 import com.example.myapplication.util.ApplicationHolder;
 import com.example.myapplication.util.SharedPreference;
 import com.example.myapplication.util.Utill;
+import com.google.firebase.FirebaseError;
+
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -54,7 +63,17 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.database.ChildEventListener;
 
 public class UserProfile extends SuperClasses implements OnClickListener, ServiceResponseHandler {
 
@@ -101,11 +120,11 @@ public class UserProfile extends SuperClasses implements OnClickListener, Servic
 		notificationsBellLayout=(RelativeLayout) findViewById(R.id.notificationsBellLayout);
 		notificationsBellLayout.setOnClickListener(this);
 		countNotifications=(TextView)findViewById(R.id.creditsId);
-		new NotificationCountAsycTask(this).execute();
+		//new NotificationCountAsycTask(this).execute();
 
 
 		imageViewprofile = (CircleImageView) findViewById(R.id.imageViewprofile);
-		imageViewprofile.setOnClickListener(new OnClickListener() {
+		/*imageViewprofile.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
@@ -113,25 +132,27 @@ public class UserProfile extends SuperClasses implements OnClickListener, Servic
 				selectImage();
 
 			}
-		});
+		});*/
 
 		mCircleDisplay=new CircleDisplay(this);
 		perentage_tv = (TextView)findViewById(R.id.perentage_tv);
 		if (Utill.isNetworkAvailable(UserProfile.this)) {
-			if(validation()){
+			update();
+			/*if(validation()){
 
 				//new UserProfileAsyncTask(UserProfile.this).execute("email="+sharedpreferences.getPrefValue("userMail"));
 
-			}
+			}*/
 //
 		} else {
 			Toast.makeText(UserProfile.this, getResources().getString(R.string.noInternet), Toast.LENGTH_SHORT).show();
 		}
 
+
+
 	}
 
-	
-private void viewRegistration() {
+	private void viewRegistration() {
 
 		nameTV=(EditText)findViewById(R.id.nameTV);
 		mobileNOTV=(EditText)findViewById(R.id.mobileNOTV);
@@ -202,13 +223,13 @@ private void viewRegistration() {
 
     public void setEditable(boolean editable){
 		nameTV.setEnabled(editable);
-		mobileNOTV.setEnabled(editable);
+		mobileNOTV.setEnabled(false);
 		recidentNoTV.setEnabled(editable);
 		bloodGroupTv.setEnabled(editable);
 		//genderTv.setEnabled(editable);
 		dobTv.setEnabled(editable);
 		weghtTv.setEnabled(editable);
-		mailTv.setEnabled(editable);
+		mailTv.setEnabled(false);
 		howOftenTv.setEnabled(editable);
 		cityTv.setEnabled(editable);
 		addressTv.setEnabled(editable);
@@ -459,6 +480,12 @@ private void viewRegistration() {
 	            return encoded;
 	    }
 
+//	@Override
+//	public void onBackPressed() {
+//		// TODO Auto-generated method stub
+//
+//
+//	}
 
 	@Override
 	public void onSuccess(String response) {
@@ -490,6 +517,7 @@ private void viewRegistration() {
 			howOftenTv.setText(secondJobj.getString("userHowoften"));
 			cityTv.setText(secondJobj.getString("userCity"));
 			addressTv.setText(secondJobj.getString("userCity"));
+			
 
 
 
@@ -531,8 +559,8 @@ private void viewRegistration() {
 			Utill.showToast(this,"Please enter weight");
 		else if(mailTv.getText().toString().equalsIgnoreCase(""))
 			Utill.showToast(this,"Please enter email");
-		else if(howOftenTv.getText().toString().equalsIgnoreCase(""))
-			Utill.showToast(this,"Please enter how often");
+//		else if(howOftenTv.getText().toString().equalsIgnoreCase(""))
+//			Utill.showToast(this,"Please enter how often");
 		else if(cityTv.getText().toString().equalsIgnoreCase(""))
 			Utill.showToast(this,"Please enter City");
 		else if(addressTv.getText().toString().equalsIgnoreCase(""))
@@ -540,24 +568,58 @@ private void viewRegistration() {
 
 		else{
 			if (Utill.isNetworkAvailable(UserProfile.this)) {
-				/*profileImage.setDrawingCacheEnabled(true);
-				profileImage.buildDrawingCache();
-				Bitmap bm = profileImage.getDrawingCache();
-				ByteArrayOutputStream stream = new ByteArrayOutputStream();
-				bm.compress(Bitmap.CompressFormat.PNG, 100, stream);
-				byte[] byteArray = stream.toByteArray();*/
 
-				//Profile/updateDonorprofile?donor_name=&dob=&blood=&weight=&res_phno=&address1=&city_name=&mob_no=&userID=&image=
-				//http://websitesdev.in/jjyothi/index.php/Profile/updateDonorprofile?donor_name=&dob=&blood=&weight=&res_phno=&address1=&city_name=&mob_no=&userID=
-				String placer="email="+sharedPreference.getPrefValue("userMail")+"&donor_name="+nameTV.getText().toString()+"&dob="+dobTv.getText().toString()+"&blood="+bloodGroupTv.getText().toString()+"&weight="+weghtTv.getText().toString()+"&res_phno="+recidentNoTV.getText().toString()+"&address1="+addressTv.getText().toString()+"&city_name="+cityTv.getText().toString()+"&mob_no="+mobileNOTV.getText().toString()+"&userID="+sharedPreference.getPrefValue(ApplicationHolder.USERNAME);
-				new UpdateProfileAsyncTask(this).execute(placer.replace(" ","%20"));
+				final String emailId=new SharedPreference(context).getPrefValue(context.getString(R.string.email_id));
+				final String mobile=new SharedPreference(context).getPrefValue(context.getString(R.string.mobile_no));
+				DatabaseReference req = FirebaseDatabase.getInstance().getReference("Users");
+
+				Query pendingTasks = req.orderByChild("email").equalTo(emailId);
+
+
+
+
+
+				pendingTasks.addListenerForSingleValueEvent(new ValueEventListener() {
+					@Override
+					public void onDataChange(@NonNull DataSnapshot tasksSnapshot) {
+						if(tasksSnapshot.exists()){
+							for (DataSnapshot snapshot: tasksSnapshot.getChildren()) {
+								snapshot.getRef().child("city").setValue(cityTv.getText().toString());
+								snapshot.getRef().child("dob").setValue(dobTv.getText().toString());
+								snapshot.getRef().child("gender").setValue(genderTv.getText().toString());
+								snapshot.getRef().child("group").setValue(bloodGroupTv.getText().toString());
+								snapshot.getRef().child("name").setValue(nameTV.getText().toString());
+								snapshot.getRef().child("rno").setValue(recidentNoTV.getText().toString());
+								snapshot.getRef().child("weight").setValue(weghtTv.getText().toString());
+								// snapshot.getRef().child("howOften").setValue(howOftenTv.getText().toString());
+								snapshot.getRef().child("address").setValue(addressTv.getText().toString());
+
+								Utill.showToast(UserProfile.this,"Data Saved Successfully");
+							}
+						}else{
+							Utill.showToast(UserProfile.this,"User Does Not exists");
+						}
+					}
+
+					@Override
+					public void onCancelled(@NonNull DatabaseError error) {
+						Utill.showToast(UserProfile.this,error.getMessage());
+
+					}
+				});
+
+/*				String placer="email="+sharedPreference.getPrefValue("userMail")+"&donor_name="+nameTV.getText().toString()+"&dob="+dobTv.getText().toString()+"&blood="+bloodGroupTv.getText().toString()+"&weight="+weghtTv.getText().toString()+"&res_phno="+recidentNoTV.getText().toString()+"&address1="+addressTv.getText().toString()+"&city_name="+cityTv.getText().toString()+"&mob_no="+mobileNOTV.getText().toString()+"&userID="+sharedPreference.getPrefValue(ApplicationHolder.USERNAME);
+				new UpdateProfileAsyncTask(this).execute(placer.replace(" ","%20"));*/
+
 			} else {
 				Toast.makeText(this, getResources().getString(R.string.noInternet), Toast.LENGTH_SHORT).show();
 			}
 		}
 
-	}
 
+
+
+	}
 	public void responseCount(String response){
 		int k= Integer.parseInt(response);
 		if(k>0) {
@@ -584,5 +646,65 @@ private void viewRegistration() {
 				}, mYear, mMonth, mDay);
 		dpd.show();
 		dpd.setIcon(R.drawable.calander);
+	}
+
+
+
+	private void update(){
+		if (Utill.isNetworkAvailable(UserProfile.this)) {
+			Query query1 = FirebaseDatabase.getInstance().getReference("Users");/*.orderByChild("email").equalTo(emailId);*/
+			final String emailId=new SharedPreference(UserProfile.this).getPrefValue(getString(R.string.email_id));
+			query1.addChildEventListener(new ChildEventListener() {
+
+				@Override
+				public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+					if(snapshot.exists() && emailId.equalsIgnoreCase(snapshot.child("email").getValue(String.class))){
+
+
+						nameTV.setText(snapshot.child("name").getValue(String.class));
+						mobileNOTV.setText(snapshot.child("mobile").getValue(String.class));
+						bloodGroupTv.setText(snapshot.child("group").getValue(String.class));
+						genderTv.setText(snapshot.child("gender").getValue(String.class));
+						dobTv.setText(snapshot.child("dob").getValue(String.class));
+						mailTv.setText(snapshot.child("email").getValue(String.class));
+						cityTv.setText(snapshot.child("city").getValue(String.class));
+
+						recidentNoTV.setText(snapshot.child("rno").getValue(String.class));
+						addressTv.setText(snapshot.child("address").getValue(String.class));
+						weghtTv.setText(snapshot.child("weight").getValue(String.class));
+						// howOftenTv.setText(snapshot.child("howOften").getValue(String.class));
+
+					}
+				}
+
+				@Override
+				public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+				}
+
+				@Override
+				public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+				}
+
+				@Override
+				public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+				}
+
+				@Override
+				public void onCancelled(@NonNull DatabaseError error) {
+
+				}
+			});
+
+
+
+
+			//  new NotificationsAsyncTask(NotificationsActivity.this).execute();
+		} else {
+			Toast.makeText(UserProfile.this, getResources().getString(R.string.noInternet), Toast.LENGTH_SHORT).show();
+		}
 	}
 }
