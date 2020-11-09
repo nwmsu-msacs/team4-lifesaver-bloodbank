@@ -10,8 +10,44 @@ public class User {
     private String mobile;
     private String name;
     private String password;
+    private String rno="";
+    private String weight="";
+    private String howOften="";
+    private String address="";
 
-    public User(String city, String dob, String email, String gender, String group, String mobile, String name, String password) {
+    public String getWeight() {
+        return weight;
+    }
+
+    public void setWeight(String weight) {
+        this.weight = weight;
+    }
+
+    public String getHowOften() {
+        return howOften;
+    }
+
+    public void setHowOften(String howOften) {
+        this.howOften = howOften;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getRno() {
+        return rno;
+    }
+
+    public void setRno(String rno) {
+        this.rno = rno;
+    }
+
+    public User(String city, String dob, String email, String gender, String group, String mobile, String name, String password, String rno, String weight, String howOften, String address) {
         this.city = city;
         this.dob = dob;
         this.email = email;
@@ -20,6 +56,10 @@ public class User {
         this.mobile = mobile;
         this.name = name;
         this.password = password;
+        this.rno = rno;
+        this.weight = weight;
+        this.howOften = howOften;
+        this.address = address;
     }
 
     public String getCity() {
